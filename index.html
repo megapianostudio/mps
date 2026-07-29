@@ -30,11 +30,18 @@
         }
 
         .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+
             width: 220px;
+            height: 100vh;
+
             background-color: #ffd145;
             padding-top: 40px;
             border-right: 2px solid #d4c200;
-            flex-shrink: 0;
+
+            overflow-y: auto;
         }
 
         .sidebar h2 {
@@ -69,10 +76,11 @@
             flex: 1;
             padding: 40px;
         }
+        
         .hero {
+            margin-left: 240px;
             margin-bottom: 50px;
             padding: 40px;
-            margin-left: 10px;
         }
 
         .hero h1 {
@@ -218,8 +226,6 @@
 </head>
 
 <body>
-
-<div class="page-wrapper">
 
     <nav class="sidebar">
 
