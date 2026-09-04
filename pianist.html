@@ -60,6 +60,8 @@
 
 
     .menu-button {
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -79,8 +81,7 @@
 
         cursor: pointer;
 
-        box-shadow:
-            0 5px 18px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
     }
 
 
@@ -119,7 +120,7 @@
     }
 
 
-    .menu:hover .menu-links {
+    .menu.open .menu-links {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
@@ -215,6 +216,11 @@
         color: var(--charcoal);
 
         margin-bottom: 18px;
+    }
+
+    .hero h1 a {
+        color: var(--charcoal);
+        text-decoration: none;
     }
 
 
@@ -518,7 +524,7 @@
 <header class="hero">
 
     <h1>
-        Mega Piano Studio
+        <a href="../index.html">Mega Piano Studio</a>
     </h1>
 
     <h4>
@@ -639,6 +645,19 @@
 
 </main>
 
+<script>
+    const menu = document.querySelector(".menu");
+    const menuButton = document.querySelector(".menu-button");
 
+    menuButton.addEventListener("click", function () {
+        menu.classList.toggle("open");
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target)) {
+            menu.classList.remove("open");
+        }
+    });
+    </script>
 </body>
 </html>

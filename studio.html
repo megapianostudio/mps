@@ -53,6 +53,8 @@
 
 
     .menu-button {
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -110,7 +112,7 @@
     }
 
 
-    .menu:hover .menu-links {
+    .menu.open .menu-links {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
@@ -204,6 +206,10 @@
         margin-bottom: 18px;
     }
 
+    .hero h1 a {
+        color: var(--charcoal);
+        text-decoration: none;
+    }
 
     .hero h4 {
         font-size: 0.95rem;
@@ -716,7 +722,9 @@
 
 <header class="hero">
 
-<h1>Mega Piano Studio</h1>
+<h1>
+    <a href="../index.html">Mega Piano Studio</a>
+</h1>
 
 <h4>
     Teaching
@@ -741,12 +749,12 @@
 
 </div>
 
-
 <article class="teaching-content">
 
     <div class="teaching-quote">
         “Curiosity is the main energy” ~ Robert Rauschenberg
     </div>
+
     <br>
     <br>
 
@@ -904,6 +912,19 @@
 </form>
 
 </section>
+<script>
+    const menu = document.querySelector(".menu");
+    const menuButton = document.querySelector(".menu-button");
 
+    menuButton.addEventListener("click", function () {
+        menu.classList.toggle("open");
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target)) {
+            menu.classList.remove("open");
+        }
+    });
+    </script>
 </body>
 </html>

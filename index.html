@@ -59,6 +59,8 @@
 
 
     .menu-button {
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -116,7 +118,7 @@
     }
 
 
-    .menu:hover .menu-links {
+    .menu.open .menu-links {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
@@ -949,5 +951,19 @@
     Picture: twocentsmusic
 </div>
 
+<script>
+const menu = document.querySelector(".menu");
+const menuButton = document.querySelector(".menu-button");
+
+menuButton.addEventListener("click", function () {
+    menu.classList.toggle("open");
+});
+
+document.addEventListener("click", function (event) {
+    if (!menu.contains(event.target)) {
+        menu.classList.remove("open");
+    }
+});
+</script>
 </body>
 </html>
