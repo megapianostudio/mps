@@ -25,183 +25,124 @@
         --white: #ffffff;
     }
 
-
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
 
-
     html {
         scroll-behavior: smooth;
     }
 
-
     body {
         background-color: var(--warm-cream);
-
         color: var(--charcoal);
-
         font-family: "Montserrat", sans-serif;
     }
-
 
     /* MENU */
 
     .menu {
         position: fixed;
-
         top: 25px;
         left: 25px;
-
         z-index: 1000;
     }
 
-
     .menu-button {
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
         display: flex;
-
         align-items: center;
-
         gap: 10px;
-
         padding: 14px 18px;
-
         background: var(--charcoal);
-
         color: var(--warm-cream);
-
         font-size: 0.75rem;
-
         font-weight: 600;
-
         letter-spacing: 0.12em;
-
         text-transform: uppercase;
-
         border-radius: 4px;
-
         cursor: pointer;
-
-        box-shadow:
-            0 5px 18px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
     }
-
 
     .menu-icon {
         font-size: 1.2rem;
-
         line-height: 1;
     }
 
-
     .menu-links {
         position: absolute;
-
         top: 100%;
         left: 0;
-
         width: 220px;
-
         margin-top: 8px;
-
         background: var(--white);
-
         border-radius: 4px;
-
         box-shadow:
             0 10px 30px rgba(0, 0, 0, 0.15);
-
         overflow: hidden;
-
         opacity: 0;
-
         visibility: hidden;
-
         transform: translateY(-8px);
-
         transition:
             opacity 0.25s ease,
             transform 0.25s ease,
             visibility 0.25s ease;
     }
 
-
-    .menu:hover .menu-links {
+    .menu.open .menu-links {
         opacity: 1;
-
         visibility: visible;
-
         transform: translateY(0);
     }
 
-
     .menu-links a {
         display: block;
-
         padding: 15px 20px;
-
         color: var(--charcoal);
-
         text-decoration: none;
-
         font-size: 0.75rem;
-
         font-weight: 600;
-
         letter-spacing: 0.08em;
-
         text-transform: uppercase;
-
         border-bottom: 1px solid var(--soft-cream);
-
         transition:
             background 0.2s ease,
             padding-left 0.2s ease;
     }
 
-
     .menu-links a:last-child {
         border-bottom: none;
     }
 
-
     .menu-links a:hover {
         background: var(--soft-cream);
-
         padding-left: 26px;
     }
-
 
     .submenu {
         background: #f7f4ec;
     }
 
-
     .submenu a {
         padding-left: 35px;
-
         font-size: 0.68rem;
-
         font-weight: 500;
-
         letter-spacing: 0.06em;
     }
-
 
     .submenu a:hover {
         padding-left: 41px;
     }
 
-
     /* HERO */
 
     .hero {
         min-height: 28vh;
-
         padding: 35px 30px 25px;
-
         background: linear-gradient(
             135deg,
             rgba(255, 209, 69, 0.97),
@@ -209,142 +150,96 @@
         );
 
         display: flex;
-
         flex-direction: column;
-
         align-items: center;
-
         justify-content: center;
-
         text-align: center;
     }
 
-
     .hero h1 {
         font-family: "Niconne", cursive;
-
         font-size: clamp(4.5rem, 8vw, 7rem);
-
         font-weight: normal;
-
         line-height: 1;
-
         color: var(--charcoal);
-
         margin-bottom: 18px;
     }
 
+    .hero h1 a {
+        color: var(--charcoal);
+        text-decoration: none;
+    }
 
     .hero h4 {
         font-size: 0.95rem;
-
         font-weight: 500;
-
         letter-spacing: 0.2em;
-
         text-transform: uppercase;
-
         color: #5a5138;
-
         margin-bottom: 25px;
     }
 
-
     .hero-rule {
         width: 70px;
-
         height: 2px;
-
         background: var(--charcoal);
     }
-
 
     /* TESTIMONIALS */
 
     .testimonial-section {
         max-width: 1200px;
-
         margin: 65px auto 100px;
-
         padding: 0 30px;
-
         display: grid;
-
         grid-template-columns: 430px 1fr;
-
         gap: 65px;
-
         align-items: start;
     }
 
-
     .testimonial-image {
         position: sticky;
-
         top: 40px;
     }
 
-
     .testimonial-image img {
         display: block;
-
         width: 100%;
-
         height: auto;
-
         border-radius: 12px;
-
         box-shadow:
             0 12px 35px rgba(0, 0, 0, 0.15);
     }
 
-
     .photo-credit {
         margin-top: 8px;
-
         font-family: "Montserrat", sans-serif;
-
         font-size: 0.8rem;
-
         font-weight: 400;
-
         letter-spacing: 0.05em;
-
         color: var(--soft-charcoal);
-
         text-align: left;
     }
 
-
     .testimonial-content {
         background: rgba(255, 255, 255, 0.78);
-
         padding: 50px 55px;
-
         border-radius: 8px;
-
         box-shadow:
             0 10px 35px rgba(0, 0, 0, 0.06);
     }
 
-
     .testimonial-content p {
         font-family: "Cormorant Garamond", serif;
-
         font-size: 1.4rem;
-
         line-height: 1.7;
-
         color: var(--soft-charcoal);
-
         margin-bottom: 35px;
     }
-
 
     .testimonial-content p:last-child {
         margin-bottom: 0;
     }
-
 
     /* MOBILE */
 
@@ -352,250 +247,194 @@
 
         .testimonial-section {
             grid-template-columns: 1fr;
-
             gap: 40px;
-
             margin-top: 40px;
         }
 
-
         .testimonial-image {
             position: relative;
-
             top: auto;
-
             max-width: 500px;
-
             margin: 0 auto;
         }
-
 
         .testimonial-content {
             padding: 40px 30px;
         }
-
     }
 
-
     @media (max-width: 600px) {
-
         .menu {
             top: 15px;
-
             left: 15px;
         }
 
-
         .hero {
             min-height: 45vh;
-
             padding: 90px 25px 60px;
         }
-
 
         .hero h1 {
             font-size: 4.5rem;
         }
 
-
         .hero h4 {
             font-size: 0.8rem;
-
             letter-spacing: 0.14em;
         }
 
-
         .testimonial-section {
             margin: 40px 20px 75px;
-
             padding: 0;
-
             gap: 30px;
         }
-
 
         .testimonial-content {
             padding: 35px 25px;
         }
 
-
         .testimonial-content p {
             font-size: 1.2rem;
         }
 
-
         .photo-credit {
             font-size: 0.6rem;
         }
-
     }
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <nav class="menu">
-
     <div class="menu-button">
-
         <span class="menu-icon">☰</span>
-
         Menu
-
     </div>
 
-
     <div class="menu-links">
-
         <a href="https://megapianostudio.github.io/mps/studio">
             Studio
         </a>
 
-
         <div class="submenu">
-
             <a href="https://megapianostudio.github.io/mps/studio/courses">
                 Courses
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/calendar">
                 Calendar
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/teachers">
                 Teachers
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/musicplayspace">
                 Music Play Space
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/musictalk">
                 Music Talk
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/testimonials">
                 Testimonials
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/contact">
                 Contact
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/recruit">
                 Recruit
             </a>
-
         </div>
-
 
         <a href="https://megapianostudio.github.io/mps/pianist">
             Pianist
         </a>
 
-
         <div class="submenu">
-
             <a href="https://megapianostudio.github.io/mps/pianist/repertoire">
                 Repertoire
             </a>
-
             <a href="https://megapianostudio.github.io/mps/pianist/video">
                 Video
             </a>
-
             <a href="https://megapianostudio.github.io/mps/pianist/newsounds">
                 New Sounds
             </a>
-
             <a href="https://megapianostudio.github.io/mps/pianist/perform">
                 Perform
             </a>
-
         </div>
-
     </div>
-
 </nav>
 
-
 <header class="hero">
-
-    <h1>Mega Piano Studio</h1>
-
+    <h1>
+        <a href="../../index.html">Mega Piano Studio</a>
+    </h1>
     <h4>
         Testimonials
     </h4>
-
     <div class="hero-rule"></div>
-
 </header>
-
 
 <main class="testimonial-section">
 
-
     <div class="testimonial-image">
-
         <img
             src="../image/8.jpg"
             alt="Mega Piano Studio"
         >
-
         <div class="photo-credit">
             Picture: Benoit Liberelle
         </div>
-
     </div>
 
-
     <article class="testimonial-content">
-
 
         <p>
             “I recommend Megaria Halim for her excellent musicianship and her ability to offer insightful, detailed advice that helps musicians improve their skills in playing their instrument.” — Amalia Lavoie (UPEI, saxophone student)
         </p>
 
-
         <p>
             “I had the pleasure of rehearsing and performing with Megaria as my collaborative pianist at the 2026 FCMF National Music Festival. Megaria is a kind-hearted, creative, attentive, and extremely organized musician. Beyond this, she is a wonderful coach for music students. She teaches by example through her deep sense of musicianship, as well as through thoughtful discussion, suggestions, and ideas. Even in the short span of two rehearsals, she offered the music I had been working on for many months a fresh, colourful, and informed perspective. She clarified musical questions I didn't even realize I had, opening my eyes to new possibilities. I recommend Megaria as a collaborator, mentor, and musician - she will surprise you in the most wonderful way!” — Emilia Vozian (flute, student of Victoria University; 2nd place award winner of Federation of Canadian Music Festivals 2026)
         </p>
-
 
         <p>
             “Megaria was my private piano teacher and my very first collaborative pianist in Western. She is a one-of-a-kind piano instructor who brings a holistic approach to teaching and learning. She strives to understand the student as a whole and will take your strengths, and limitations into account when designing how best achieve your piano playing goals. Not only did I grow as a pianist under Megaria, but my understanding and passion for the piano grew as well! I’d only be taking voice lessons for a year before I found Megaria, and she was integral to solidifying my foundation in Lyric Diction, and Performance Artistry. Performing with Megaria was so much more than singing with an accompanist; it felt like a duet, the piano and voice working together to create a unique rendition of timeless music.” — Christel Oguchi (pianist/composer/singer, student of University of Western Ontario)
         </p>
 
-
         <p>
             “I coached with Megaria for 2 years while I was doing my Masters of Music. Her feedback during coachings, especially when it came to rhythm and diction, gave me the confidence I needed to perform my best on stage.” — Leah Bondy (soprano, University of Western Ontario class of 2024)
         </p>
-
 
         <p>
             “It’s so tough to put things into words because you were the best collaborative pianist I worked with. Like everything was easy and fun, I never felt in a bad mood. It helps that we are friends, but I think you are also an accomplished, well-rounded musician that enabled me to soar as a musician. You listened to and followed my crazy ideas and still went above and beyond to deliver a stunning performance (performances)” — Paul Schulz-Courtemanche (flutist, UWO class of 2024)
         </p>
 
-
         <p>
             “Megaria was my collaborative pianist for 3 years during my Bachelor of Music at Western University. We performed for studio recitals, two solo recitals, and several masterclasses. Every rehearsal together was a positive, educational, and fun experience that always ended with improvements to the music and to my confidence. She is a very knowledgeable musician and had ideas ready to try out when I felt stuck or unsure. Her encouragement, dedication, and mentorship were foundational to my growth as a musician. Anyone who has the privilege of learning from Megaria will not be disappointed!” — Amy Dimitrov (clarinetist, UWO class of 2025)
         </p>
-
 
         <p>
             “I worked with Megaria for all four years of my undergraduate degree. She always knew how to both push me and support me when collaborating on pieces. I learned so much from her and became a better performer because of her. She has great communication and is so much fun to work with. I recommend her without any hesitation. She truly is a wonderful musician and person to work with and be around.” — Alexia Koras (clarinetist, UWO class of 2024)
         </p>
 
-
     </article>
-
 
 </main>
 
+<script>
+    const menu = document.querySelector(".menu");
+    const menuButton = document.querySelector(".menu-button");
 
+    menuButton.addEventListener("click", function () {
+        menu.classList.toggle("open");
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target)) {
+            menu.classList.remove("open");
+        }
+    });
+    </script>
 </body>
 </html>

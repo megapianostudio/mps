@@ -24,18 +24,15 @@
         --white: #ffffff;
     }
 
-
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
 
-
     html {
         scroll-behavior: smooth;
     }
-
 
     body {
         margin: 0;
@@ -44,19 +41,16 @@
         font-family: "Montserrat", sans-serif;
     }
 
-
     body::before {
         content: "";
         position: fixed;
         inset: 0;
         z-index: -1;
-
         background-image: url("../image/3.jpg");
         background-size: 120% 120%;
         background-position: center center;
         background-repeat: no-repeat;
     }
-
 
     .menu {
         position: fixed;
@@ -65,264 +59,188 @@
         z-index: 1000;
     }
 
-
     .menu-button {
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
         display: flex;
         align-items: center;
         gap: 10px;
-
         padding: 14px 18px;
-
         background: var(--charcoal);
         color: var(--warm-cream);
-
         font-size: 0.75rem;
         font-weight: 600;
-
         letter-spacing: 0.12em;
         text-transform: uppercase;
-
         border-radius: 4px;
-
         cursor: pointer;
-
         box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
     }
-
 
     .menu-icon {
         font-size: 1.2rem;
         line-height: 1;
     }
 
-
     .menu-links {
         position: absolute;
         top: 100%;
         left: 0;
-
         width: 220px;
         margin-top: 8px;
-
         background: var(--white);
-
         border-radius: 4px;
-
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-
         overflow: hidden;
-
         opacity: 0;
         visibility: hidden;
-
         transform: translateY(-8px);
-
         transition:
             opacity 0.25s ease,
             transform 0.25s ease,
             visibility 0.25s ease;
     }
 
-
-    .menu:hover .menu-links {
+    .menu.open .menu-links {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
     }
 
-
     .menu-links a {
         display: block;
-
         padding: 15px 20px;
-
         color: var(--charcoal);
-
         text-decoration: none;
-
         font-size: 0.75rem;
         font-weight: 600;
-
         letter-spacing: 0.08em;
         text-transform: uppercase;
-
         border-bottom: 1px solid var(--soft-cream);
-
         transition:
             background 0.2s ease,
             padding-left 0.2s ease;
     }
 
-
     .menu-links a:last-child {
         border-bottom: none;
     }
-
 
     .menu-links a:hover {
         background: var(--soft-cream);
         padding-left: 26px;
     }
 
-
     .submenu {
         background: #f7f4ec;
     }
 
-
     .submenu a {
         padding-left: 35px;
-
         font-size: 0.68rem;
         font-weight: 500;
-
         letter-spacing: 0.06em;
     }
-
 
     .submenu a:hover {
         padding-left: 41px;
     }
 
-
     .hero {
         min-height: 28vh;
-
         padding: 35px 30px 25px;
-
         background: linear-gradient(
             135deg,
             rgba(255, 209, 69, 0.97),
             rgba(255, 225, 135, 0.92)
         );
-
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
         text-align: center;
     }
 
-
     .hero h1 {
         font-family: "Niconne", cursive;
-
         font-size: clamp(4.5rem, 8vw, 7rem);
-
         font-weight: normal;
         line-height: 1;
-
         color: var(--charcoal);
-
         margin-bottom: 18px;
     }
 
+    .hero h1 a {
+        color: var(--charcoal);
+        text-decoration: none;
+    }
 
     .hero h4 {
         font-size: 0.95rem;
-
         font-weight: 500;
-
         letter-spacing: 0.2em;
-
         text-transform: uppercase;
-
         color: #5a5138;
-
         margin-bottom: 25px;
     }
-
 
     .hero-rule {
         width: 70px;
         height: 2px;
-
         background: var(--charcoal);
     }
 
-
     .music-section {
         max-width: 1200px;
-
         margin: 65px auto 100px;
-
         padding: 0 30px;
     }
 
-
     .music-content {
         background: rgba(250, 248, 242, 0.94);
-
         padding: 55px 65px;
-
         border-radius: 8px;
-
         box-shadow:
             0 10px 35px rgba(0, 0, 0, 0.10);
     }
 
-
     .music-content h2 {
         font-family: "Cormorant Garamond", serif;
-
         font-size: 2.7rem;
-
         font-weight: 600;
-
         color: var(--charcoal);
-
         margin-top: 0;
-
         margin-bottom: 22px;
     }
 
-
     .music-content h2::before {
         content: "";
-
         display: block;
-
         width: 50px;
         height: 3px;
-
         background: var(--brand-yellow);
-
         margin-bottom: 20px;
     }
 
-
     .music-content p {
         font-family: "Cormorant Garamond", serif;
-
         font-size: 1.4rem;
-
         line-height: 1.7;
-
         color: var(--soft-charcoal);
-
         margin-bottom: 28px;
     }
 
-
     .photo-credit {
         position: fixed;
-
         bottom: 12px;
         right: 15px;
-
         font-family: "Montserrat", sans-serif;
-
         font-size: 0.8rem;
         font-weight: 400;
-
         letter-spacing: 0.05em;
-
         color: rgba(255, 255, 255, 0.85);
-
         z-index: 999;
     }
-
 
     @media (max-width: 800px) {
 
@@ -330,13 +248,10 @@
             margin-top: 40px;
         }
 
-
         .music-content {
             padding: 40px 30px;
         }
-
     }
-
 
     @media (max-width: 600px) {
 
@@ -345,75 +260,53 @@
             left: 15px;
         }
 
-
         .hero {
             min-height: 45vh;
-
             padding: 90px 25px 60px;
         }
-
 
         .hero h1 {
             font-size: 4.5rem;
         }
 
-
         .hero h4 {
             font-size: 0.8rem;
-
             letter-spacing: 0.14em;
         }
 
-
         .music-section {
             margin: 40px 20px 75px;
-
             padding: 0;
         }
-
 
         .music-content {
             padding: 35px 25px;
         }
 
-
         .music-content h2 {
             font-size: 2.2rem;
         }
-
 
         .music-content p {
             font-size: 1.2rem;
         }
 
-
         .photo-credit {
             bottom: 8px;
             right: 10px;
-
             font-size: 0.6rem;
         }
-
     }
-
 </style>
-
 </head>
-
 
 <body>
 
-
 <nav class="menu">
-
     <div class="menu-button">
-
         <span class="menu-icon">☰</span>
-
         Menu
-
     </div>
-
 
     <div class="menu-links">
 
@@ -422,98 +315,72 @@
         </a>
 
         <div class="submenu">
-
             <a href="https://megapianostudio.github.io/mps/studio/courses">
                 Courses
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/calendar">
                 Calendar
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/teachers">
                 Teachers
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/musicplayspace">
                 Music Play Space
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/musictalk">
                 Music Talk
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/testimonials">
                 Testimonials
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/contact">
                 Contact
             </a>
-
             <a href="https://megapianostudio.github.io/mps/studio/recruit">
                 Recruit
             </a>
-
         </div>
-
 
         <a href="https://megapianostudio.github.io/mps/pianist">
             Pianist
         </a>
 
         <div class="submenu">
-
             <a href="https://megapianostudio.github.io/mps/pianist/repertoire">
                 Repertoire
             </a>
-
             <a href="https://megapianostudio.github.io/mps/pianist/video">
                 Video
             </a>
-
             <a href="https://megapianostudio.github.io/mps/pianist/newsounds">
                 New Sounds
             </a>
-
             <a href="https://megapianostudio.github.io/mps/pianist/perform">
                 Perform
             </a>
-
         </div>
-
     </div>
-
 </nav>
 
-
 <header class="hero">
-
-    <h1>Mega Piano Studio</h1>
-
+    <h1>
+        <a href="../../index.html">Mega Piano Studio</a>
+    </h1>
     <h4>
         Let's talk music
     </h4>
-
     <div class="hero-rule"></div>
-
 </header>
 
-
 <main class="music-section">
-
     <article class="music-content">
-
         <h2>
             Let's talk music
         </h2>
-
         <p>
             Check this space out for posts on music.
         </p>
-
     </article>
-
 </main>
 
 
@@ -521,6 +388,19 @@
     Picture: twocentsmusic
 </div>
 
+<script>
+    const menu = document.querySelector(".menu");
+    const menuButton = document.querySelector(".menu-button");
 
+    menuButton.addEventListener("click", function () {
+        menu.classList.toggle("open");
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target)) {
+            menu.classList.remove("open");
+        }
+    });
+    </script>
 </body>
 </html>
