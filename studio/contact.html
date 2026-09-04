@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mega Piano Studio — Contact</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&family=Niconne&display=swap" rel="stylesheet">
+
+<style>
+
+    :root {
+        --brand-yellow: #ffd145;
+        --brand-gold: #c99b1d;
+        --warm-cream: #faf8f2;
+        --soft-cream: #f2eee5;
+        --charcoal: #201f1c;
+        --soft-charcoal: #4f4b44;
+        --white: #ffffff;
+    }
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+        margin: 0;
+
+        background-color: var(--warm-cream);
+
+        color: var(--charcoal);
+
+        font-family: "Montserrat", sans-serif;
+    }
+
+
+    /* MENU */
+
+    .menu {
+        position: fixed;
+
+        top: 25px;
+        left: 25px;
+
+        z-index: 1000;
+    }
+
+
+    .menu-button {
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 14px 18px;
+
+        background: var(--charcoal);
+
+        color: var(--warm-cream);
+
+        font-size: 0.75rem;
+
+        font-weight: 600;
+
+        letter-spacing: 0.12em;
+
+        text-transform: uppercase;
+
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.15);
+    }
+
+
+    .menu-icon {
+        font-size: 1.2rem;
+
+        line-height: 1;
+    }
+
+
+    .menu-links {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 220px;
+
+        margin-top: 8px;
+
+        background: var(--white);
+
+        border-radius: 4px;
+
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.15);
+
+        overflow: hidden;
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform: translateY(-8px);
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+    }
+
+
+    .menu:hover .menu-links {
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: translateY(0);
+    }
+
+
+    .menu-links a {
+        display: block;
+
+        padding: 15px 20px;
+
+        color: var(--charcoal);
+
+        text-decoration: none;
+
+        font-size: 0.75rem;
+
+        font-weight: 600;
+
+        letter-spacing: 0.08em;
+
+        text-transform: uppercase;
+
+        border-bottom: 1px solid var(--soft-cream);
+
+        transition:
+            background 0.2s ease,
+            padding-left 0.2s ease;
+    }
+
+
+    .menu-links a:last-child {
+        border-bottom: none;
+    }
+
+
+    .menu-links a:hover {
+        background: var(--soft-cream);
+
+        padding-left: 26px;
+    }
+
+
+    .submenu {
+        background: #f7f4ec;
+    }
+
+
+    .submenu a {
+        padding-left: 35px;
+
+        font-size: 0.68rem;
+
+        font-weight: 500;
+
+        letter-spacing: 0.06em;
+    }
+
+
+    .submenu a:hover {
+        padding-left: 41px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 28vh;
+
+        padding: 35px 30px 25px;
+
+        background: linear-gradient(
+            135deg,
+            rgba(255, 209, 69, 0.97),
+            rgba(255, 225, 135, 0.92)
+        );
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-align: center;
+    }
+
+
+    .hero h1 {
+        font-family: "Niconne", cursive;
+
+        font-size: clamp(4.5rem, 8vw, 7rem);
+
+        font-weight: normal;
+
+        line-height: 1;
+
+        color: var(--charcoal);
+
+        margin-bottom: 18px;
+    }
+
+
+    .hero h4 {
+        font-size: 0.95rem;
+
+        font-weight: 500;
+
+        letter-spacing: 0.2em;
+
+        text-transform: uppercase;
+
+        color: #5a5138;
+
+        margin-bottom: 25px;
+    }
+
+
+    .hero-rule {
+        width: 70px;
+
+        height: 2px;
+
+        background: var(--charcoal);
+    }
+
+
+    /* CONTACT */
+
+    .contact-section {
+        max-width: 1200px;
+
+        margin: 65px auto 100px;
+
+        padding: 0 30px;
+
+        display: grid;
+
+        grid-template-columns: 430px 1fr;
+
+        gap: 65px;
+
+        align-items: start;
+    }
+
+
+    .contact-image {
+        position: sticky;
+
+        top: 40px;
+    }
+
+
+    .contact-image img {
+        display: block;
+
+        width: 100%;
+
+        height: auto;
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 12px 35px rgba(0, 0, 0, 0.15);
+    }
+
+
+    .photo-credit {
+        margin-top: 8px;
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.8rem;
+
+        font-weight: 400;
+
+        letter-spacing: 0.05em;
+
+        color: var(--soft-charcoal);
+
+        text-align: left;
+    }
+
+    .contact-content {
+        background: rgba(32, 31, 28, 0.98);
+        color: var(--warm-cream);
+        padding: 50px 55px;
+        border-radius: 8px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    .contact-intro {
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 1.7rem;
+
+        line-height: 1.6;
+
+        color: #ffffff;
+
+        margin-bottom: 38px;
+    }
+
+
+   .contact-content h2 {
+        color: #ffffff;
+    }
+
+    .contact-content p {
+        color: #f5f3ed;
+    }
+
+
+    .contact-content h2::before {
+        content: "";
+
+        display: block;
+
+        width: 50px;
+
+        height: 3px;
+
+        background: var(--brand-yellow);
+
+        margin-bottom: 20px;
+    }
+
+
+    /* FORM */
+
+    .contact-form {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    .form-group {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    .form-group label {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: #ffffff;
+    }
+
+    .form-note {
+        font-size: 0.72rem;
+        font-weight: 400;
+        color: #f5f3ed;
+        letter-spacing: 0;
+        line-height: 1.5;
+    }
+
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        width: 100%;
+
+        padding: 15px 16px;
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.88rem;
+
+        color: var(--charcoal);
+
+        background: var(--white);
+
+        border: 1px solid #d8d2c5;
+
+        border-radius: 4px;
+
+        outline: none;
+
+        transition: border-color 0.2s ease,
+                    box-shadow 0.2s ease;
+    }
+
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+        border-color: var(--brand-gold);
+
+        box-shadow:
+            0 0 0 2px rgba(255, 209, 69, 0.25);
+    }
+
+
+    .contact-form textarea {
+        min-height: 160px;
+
+        resize: vertical;
+    }
+
+
+    .siblings {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        margin-top: 2px;
+    }
+
+
+    .sibling-row {
+        display: flex;
+
+        gap: 10px;
+
+        align-items: center;
+    }
+
+
+    .sibling-row input {
+        flex: 1;
+    }
+
+
+    .remove-sibling {
+        padding: 11px 13px;
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.7rem;
+
+        color: var(--charcoal);
+
+        background: var(--soft-cream);
+
+        border: 1px solid #d8d2c5;
+
+        border-radius: 4px;
+
+        cursor: pointer;
+    }
+
+
+    .add-sibling {
+        align-self: flex-start;
+
+        padding: 10px 15px;
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.7rem;
+
+        font-weight: 600;
+
+        letter-spacing: 0.05em;
+
+        color: #ffffff;
+
+        background: transparent;
+
+        border: 1px solid var(--brand-gold);
+
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease;
+    }
+
+
+    .add-sibling:hover {
+        background: rgba(255, 209, 69, 0.25);
+
+        transform: translateY(-1px);
+    }
+
+
+    .communication-options {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 18px;
+
+        padding-top: 3px;
+    }
+
+
+    .radio-option {
+        display: flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        font-size: 0.85rem;
+
+        color: #ffffff;
+
+        cursor: pointer;
+    }
+
+
+    .radio-option input {
+        width: auto;
+
+        margin: 0;
+    }
+
+
+    .service-note {
+        font-size: 0.75rem;
+
+        line-height: 1.5;
+
+        color: var(--soft-charcoal);
+
+        margin-top: -5px;
+    }
+
+
+    .submit-button {
+        align-self: center;
+
+        margin-top: 10px;
+
+        padding: 15px 40px;
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.78rem;
+
+        font-weight: 600;
+
+        letter-spacing: 0.14em;
+
+        text-transform: uppercase;
+
+        color: var(--charcoal);
+
+        background: var(--brand-yellow);
+
+        border: none;
+
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        transition:
+            background 0.25s ease,
+            transform 0.25s ease;
+    }
+
+
+    .submit-button:hover {
+        background: #ffe27f;
+
+        transform: translateY(-2px);
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+        .contact-section {
+            grid-template-columns: 1fr;
+
+            gap: 40px;
+
+            margin-top: 40px;
+        }
+
+
+        .contact-image {
+            position: relative;
+
+            top: auto;
+
+            max-width: 500px;
+
+            margin: 0 auto;
+        }
+
+
+        .contact-content {
+            padding: 40px 30px;
+        }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+        .menu {
+            top: 15px;
+
+            left: 15px;
+        }
+
+
+        .hero {
+            min-height: 45vh;
+
+            padding: 90px 25px 60px;
+        }
+
+
+        .hero h1 {
+            font-size: 4.5rem;
+        }
+
+
+        .hero h4 {
+            font-size: 0.8rem;
+
+            letter-spacing: 0.14em;
+        }
+
+
+        .contact-section {
+            margin: 40px 20px 75px;
+
+            padding: 0;
+
+            gap: 30px;
+        }
+
+
+        .contact-content {
+            padding: 35px 25px;
+        }
+
+
+        .contact-intro {
+            font-size: 1.4rem;
+        }
+
+
+        .contact-content h2 {
+            font-size: 2.3rem;
+        }
+
+
+        .sibling-row {
+            align-items: stretch;
+
+            flex-direction: column;
+        }
+
+
+        .remove-sibling {
+            align-self: flex-start;
+        }
+
+
+        .photo-credit {
+            font-size: 0.6rem;
+        }
+
+    }
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav class="menu">
+
+    <div class="menu-button">
+
+        <span class="menu-icon">☰</span>
+
+        Menu
+
+    </div>
+
+
+    <div class="menu-links">
+
+        <a href="https://megapianostudio.github.io/mps/">
+            Studio
+        </a>
+
+
+        <div class="submenu">
+
+            <a href="https://megapianostudio.github.io/mps/studio/courses">
+                Courses
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/calendar">
+                Calendar
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/teachers">
+                Teachers
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/musicplayspace">
+                Music Play Space
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/musictalk">
+                Music Talk
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/testimonials">
+                Testimonials
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/contact">
+                Contact
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/recruit">
+                Recruit
+            </a>
+
+        </div>
+
+
+        <a href="https://megapianostudio.github.io/mps/pianist">
+            Pianist
+        </a>
+
+
+        <div class="submenu">
+
+            <a href="https://megapianostudio.github.io/mps/pianist/repertoire">
+                Repertoire
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/pianist/video">
+                Video
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/pianist/newsounds">
+                New Sounds
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/pianist/perform">
+                Perform
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<header class="hero">
+
+    <h1>Mega Piano Studio</h1>
+
+    <h4>
+        Contact
+    </h4>
+
+    <div class="hero-rule"></div>
+
+</header>
+
+
+<main class="contact-section">
+
+
+    <div class="contact-image">
+
+        <img
+            src="../image/9.jpeg"
+            alt="Mega Piano Studio"
+        >
+
+        <div class="photo-credit">
+            Picture: twocentsmusic
+        </div>
+
+    </div>
+
+
+    <article class="contact-content">
+
+
+        <p class="contact-intro">
+            Let’s embark on a musical journey together with Mega Piano Studio!
+        </p>
+
+
+        <h2>
+            Get in Touch
+        </h2>
+
+
+        <form
+            class="contact-form"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+        >
+
+
+            <input
+                type="hidden"
+                name="access_key"
+                value="d9a8071b-3550-4b20-9f11-2dbc6dd62039"
+            >
+
+
+            <input
+                type="hidden"
+                name="subject"
+                value="Mega Piano Studio Contact Form"
+            >
+
+
+            <div class="form-group">
+
+                <label for="name">
+                    Your name:
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="child-name">
+                    Your child’s name:
+                </label>
+
+                <span class="form-note">
+                    If you are registering lessons for your child.
+                </span>
+
+                <input
+                    type="text"
+                    id="child-name"
+                    name="child_name"
+                >
+
+
+                <div
+                    class="siblings"
+                    id="siblings"
+                ></div>
+
+
+                <button
+                    type="button"
+                    class="add-sibling"
+                    onclick="addSibling()"
+                >
+                    + Add sibling
+                </button>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email:
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="phone">
+                    Phone (WhatsApp):
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Preferred communication method:
+                </label>
+
+                <div class="communication-options">
+
+                    <label class="radio-option">
+
+                        <input
+                            type="radio"
+                            name="communication_method"
+                            value="WhatsApp"
+                            required
+                        >
+
+                        WhatsApp
+
+                    </label>
+
+
+                    <label class="radio-option">
+
+                        <input
+                            type="radio"
+                            name="communication_method"
+                            value="Email"
+                        >
+
+                        Email
+
+                    </label>
+
+                </div>
+
+
+                <span class="form-note">
+                    We will only contact you between Monday – Saturday, 9am – 6pm.
+                </span>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="service">
+                    Type of service:
+                </label>
+
+                <select
+                    id="service"
+                    name="type_of_service"
+                    onchange="updateServiceFields()"
+                    required
+                >
+
+                    <option value="" selected disabled>
+                        Please select
+                    </option>
+
+                    <option value="Lesson">
+                        Lesson
+                    </option>
+
+                    <option value="Accompaniment">
+                        Accompaniment
+                    </option>
+
+                    <option value="Performance">
+                        Performance
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div
+                class="form-group"
+                id="lesson-fields"
+                style="display: none;"
+            >
+
+                <label for="lesson-grade">
+                    Piano lesson grade:
+                </label>
+
+                <select
+                    id="lesson-grade"
+                    name="piano_lesson_grade"
+                >
+
+                    <option value="" selected disabled>
+                        Please select
+                    </option>
+
+                    <option value="Leisure">
+                        Leisure
+                    </option>
+
+                    <option value="Beginner">
+                        Beginner
+                    </option>
+
+                    <option value="Grade 1">
+                        Grade 1
+                    </option>
+
+                    <option value="Grade 2">
+                        Grade 2
+                    </option>
+
+                    <option value="Grade 3">
+                        Grade 3
+                    </option>
+
+                    <option value="Grade 4">
+                        Grade 4
+                    </option>
+
+                    <option value="Grade 5">
+                        Grade 5
+                    </option>
+
+                    <option value="Grade 6">
+                        Grade 6
+                    </option>
+
+                    <option value="Grade 7">
+                        Grade 7
+                    </option>
+
+                    <option value="Grade 8">
+                        Grade 8
+                    </option>
+
+                    <option value="Diploma">
+                        Diploma
+                    </option>
+
+                    <option value="LRSM / LTCL">
+                        LRSM / LTCL
+                    </option>
+
+                    <option value="FRSM / FTCL">
+                        FRSM / FTCL
+                    </option>
+
+                    <option value="MEP Programme">
+                        MEP Programme
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div
+                class="form-group"
+                id="accompaniment-fields"
+                style="display: none;"
+            >
+
+                <label for="accompaniment-type">
+                    Type of accompaniment:
+                </label>
+
+                <select
+                    id="accompaniment-type"
+                    name="type_of_accompaniment"
+                >
+
+                    <option value="" selected disabled>
+                        Please select
+                    </option>
+
+                    <option value="Graded">
+                        Graded
+                    </option>
+
+                    <option value="Audition">
+                        Audition
+                    </option>
+
+                    <option value="Other">
+                        Others
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="comment">
+                    Comment box:
+                </label>
+
+                <span class="form-note">
+                    Let us know if you need both lesson and accompaniment services,
+                    or something that is not listed above.
+                </span>
+
+                <textarea
+                    id="comment"
+                    name="comment"
+                    rows="7"
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-button"
+            >
+                Submit
+            </button>
+
+
+        </form>
+
+
+    </article>
+
+
+</main>
+
+
+<script>
+
+    let siblingCount = 0;
+
+
+    function addSibling() {
+
+        siblingCount++;
+
+
+        const siblingsContainer =
+            document.getElementById("siblings");
+
+
+        const siblingRow =
+            document.createElement("div");
+
+
+        siblingRow.className = "sibling-row";
+
+
+        siblingRow.id =
+            "sibling-" + siblingCount;
+
+
+        siblingRow.innerHTML = `
+
+            <input
+                type="text"
+                name="sibling_${siblingCount}"
+                placeholder="Sibling's name"
+            >
+
+            <button
+                type="button"
+                class="remove-sibling"
+                onclick="removeSibling(${siblingCount})"
+            >
+                Remove
+            </button>
+
+        `;
+
+
+        siblingsContainer.appendChild(siblingRow);
+
+    }
+
+
+    function removeSibling(number) {
+
+        const sibling =
+            document.getElementById("sibling-" + number);
+
+
+        if (sibling) {
+
+            sibling.remove();
+
+        }
+
+    }
+
+
+    function updateServiceFields() {
+
+        const service =
+            document.getElementById("service").value;
+
+
+        const lessonFields =
+            document.getElementById("lesson-fields");
+
+
+        const accompanimentFields =
+            document.getElementById("accompaniment-fields");
+
+
+        const lessonGrade =
+            document.getElementById("lesson-grade");
+
+
+        const accompanimentType =
+            document.getElementById("accompaniment-type");
+
+
+        lessonFields.style.display = "none";
+
+        accompanimentFields.style.display = "none";
+
+
+        lessonGrade.required = false;
+
+        accompanimentType.required = false;
+
+
+        if (service === "Lesson") {
+
+            lessonFields.style.display = "flex";
+
+            lessonGrade.required = true;
+
+        }
+
+
+        if (service === "Accompaniment") {
+
+            accompanimentFields.style.display = "flex";
+
+            accompanimentType.required = true;
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>

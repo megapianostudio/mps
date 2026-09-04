@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mega Piano Studio — Courses and Services</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&family=Niconne&display=swap" rel="stylesheet">
+
+
+<style>
+
+    :root {
+        --brand-yellow: #ffd145;
+        --brand-gold: #c99b1d;
+        --warm-cream: #faf8f2;
+        --soft-cream: #f2eee5;
+        --charcoal: #201f1c;
+        --soft-charcoal: #4f4b44;
+        --white: #ffffff;
+    }
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+        margin: 0;
+
+        background-color: var(--warm-cream);
+
+        color: var(--charcoal);
+
+        font-family: "Montserrat", sans-serif;
+    }
+
+
+    body::before {
+        content: "";
+
+        position: fixed;
+
+        inset: 0;
+
+        z-index: -1;
+
+        background-image: url("../image/3.jpg");
+
+        background-size: 120% 120%;
+
+        background-position: center center;
+
+        background-repeat: no-repeat;
+    }
+
+
+    /* =========================
+       MENU
+       ========================= */
+
+    .menu {
+        position: fixed;
+
+        top: 25px;
+        left: 25px;
+
+        z-index: 1000;
+    }
+
+
+    .menu-button {
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 14px 18px;
+
+        background: var(--charcoal);
+
+        color: var(--warm-cream);
+
+        font-size: 0.75rem;
+
+        font-weight: 600;
+
+        letter-spacing: 0.12em;
+
+        text-transform: uppercase;
+
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.15);
+    }
+
+
+    .menu-icon {
+        font-size: 1.2rem;
+
+        line-height: 1;
+    }
+
+
+    .menu-links {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 220px;
+
+        margin-top: 8px;
+
+        background: var(--white);
+
+        border-radius: 4px;
+
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.15);
+
+        overflow: hidden;
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform: translateY(-8px);
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+    }
+
+
+    .menu:hover .menu-links {
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: translateY(0);
+    }
+
+
+    .menu-links a {
+        display: block;
+
+        padding: 15px 20px;
+
+        color: var(--charcoal);
+
+        text-decoration: none;
+
+        font-size: 0.75rem;
+
+        font-weight: 600;
+
+        letter-spacing: 0.08em;
+
+        text-transform: uppercase;
+
+        border-bottom: 1px solid var(--soft-cream);
+
+        transition:
+            background 0.2s ease,
+            padding-left 0.2s ease;
+    }
+
+
+    .menu-links a:last-child {
+        border-bottom: none;
+    }
+
+
+    .menu-links a:hover {
+        background: var(--soft-cream);
+
+        padding-left: 26px;
+    }
+
+
+    .submenu {
+        background: #f7f4ec;
+    }
+
+
+    .submenu a {
+        padding-left: 35px;
+
+        font-size: 0.68rem;
+
+        font-weight: 500;
+
+        letter-spacing: 0.06em;
+    }
+
+
+    .submenu a:hover {
+        padding-left: 41px;
+    }
+
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+        min-height: 28vh;
+
+        padding: 35px 30px 25px;
+
+        background: linear-gradient(
+            135deg,
+            rgba(255, 209, 69, 0.97),
+            rgba(255, 225, 135, 0.92)
+        );
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-align: center;
+    }
+
+
+    .hero h1 {
+        font-family: "Niconne", cursive;
+
+        font-size: clamp(4.5rem, 8vw, 7rem);
+
+        font-weight: normal;
+
+        line-height: 1;
+
+        color: var(--charcoal);
+
+        margin-bottom: 18px;
+    }
+
+
+    .hero h4 {
+        font-size: 0.95rem;
+
+        font-weight: 500;
+
+        letter-spacing: 0.2em;
+
+        text-transform: uppercase;
+
+        color: #5a5138;
+
+        margin-bottom: 25px;
+    }
+
+
+    .hero-rule {
+        width: 70px;
+
+        height: 2px;
+
+        background: var(--charcoal);
+    }
+
+
+    /* =========================
+       COURSES CONTENT
+       ========================= */
+
+    .courses-section {
+        max-width: 1200px;
+
+        margin: 65px auto 100px;
+
+        padding: 0 30px;
+    }
+
+
+    .courses-content {
+        background: rgba(250, 248, 242, 0.94);
+
+        padding: 55px 65px;
+
+        border-radius: 8px;
+
+        box-shadow:
+            0 10px 35px rgba(0, 0, 0, 0.10);
+    }
+
+
+    .courses-content h2 {
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 2.7rem;
+
+        font-weight: 600;
+
+        color: var(--charcoal);
+
+        margin-top: 45px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .courses-content h2:first-child {
+        margin-top: 0;
+    }
+
+
+    .courses-content h2::before {
+        content: "";
+
+        display: block;
+
+        width: 50px;
+
+        height: 3px;
+
+        background: var(--brand-yellow);
+
+        margin-bottom: 20px;
+    }
+
+
+    .courses-content p {
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 1.4rem;
+
+        line-height: 1.7;
+
+        color: var(--soft-charcoal);
+
+        margin-bottom: 28px;
+    }
+
+
+    .courses-content p:last-child {
+        margin-bottom: 0;
+    }
+
+
+    .courses-content a {
+        color: var(--charcoal);
+
+        font-weight: 600;
+
+        text-decoration-color: var(--brand-gold);
+
+        text-decoration-thickness: 1px;
+
+        text-underline-offset: 4px;
+    }
+
+
+    .courses-content a:hover {
+        color: var(--brand-gold);
+    }
+
+
+    /* =========================
+       CONTACT FORM
+       ========================= */
+
+    .contact-banner {
+        padding: 90px 30px;
+
+        background: rgba(32, 31, 28, 0.98);
+
+        color: var(--warm-cream);
+
+        border-top: 3px solid var(--brand-yellow);
+    }
+
+
+    .contact-banner h2 {
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 3rem;
+
+        font-weight: 500;
+
+        text-align: center;
+
+        margin-bottom: 15px;
+    }
+
+
+    .contact-banner h2::after {
+        content: "";
+
+        display: block;
+
+        width: 55px;
+
+        height: 2px;
+
+        background: var(--brand-yellow);
+
+        margin: 20px auto 25px;
+    }
+
+
+    .contact-banner > p {
+        max-width: 650px;
+
+        margin: 0 auto 38px;
+
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 1.3rem;
+
+        line-height: 1.6;
+
+        text-align: center;
+
+        color: #d9d5cc;
+    }
+
+
+    .contact-banner form {
+        max-width: 650px;
+
+        margin: auto;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 17px;
+    }
+
+
+    .contact-banner input,
+    .contact-banner select,
+    .contact-banner textarea {
+        width: 100%;
+
+        padding: 16px 18px;
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.9rem;
+
+        color: var(--charcoal);
+
+        background: var(--warm-cream);
+
+        border: 2px solid transparent;
+
+        border-radius: 4px;
+
+        outline: none;
+    }
+
+
+    .contact-banner input:focus,
+    .contact-banner select:focus,
+    .contact-banner textarea:focus {
+        border-color: var(--brand-yellow);
+    }
+
+
+    .contact-banner textarea {
+        resize: vertical;
+
+        min-height: 150px;
+    }
+
+
+    .form-group {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .form-group label {
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.78rem;
+
+        font-weight: 600;
+
+        letter-spacing: 0.06em;
+
+        color: #ffffff;
+    }
+
+
+    .radio-group {
+        display: flex;
+
+        gap: 25px;
+
+        align-items: center;
+    }
+
+
+    .radio-option {
+        display: flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        font-size: 0.85rem;
+
+        color: #ffffff;
+
+        cursor: pointer;
+    }
+
+
+    .radio-option input {
+        width: auto;
+
+        padding: 0;
+
+        accent-color: var(--brand-yellow);
+    }
+
+
+    .form-note {
+        margin: 0;
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.72rem;
+
+        font-weight: 400;
+
+        color: #f5f3ed;
+
+        letter-spacing: 0;
+
+        line-height: 1.5;
+    }
+
+
+    .add-sibling {
+        align-self: flex-start;
+
+        padding: 10px 15px;
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.7rem;
+
+        font-weight: 600;
+
+        letter-spacing: 0.05em;
+
+        color: #ffffff;
+
+        background: transparent;
+
+        border: 1px solid var(--brand-gold);
+
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease;
+    }
+
+
+    .add-sibling:hover {
+        background: rgba(255, 209, 69, 0.25);
+
+        color: #ffffff;
+
+        transform: translateY(-1px);
+    }
+
+
+    .contact-banner button[type="submit"] {
+        align-self: center;
+
+        margin-top: 8px;
+
+        padding: 15px 40px;
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.78rem;
+
+        font-weight: 600;
+
+        letter-spacing: 0.14em;
+
+        text-transform: uppercase;
+
+        color: var(--charcoal);
+
+        background: var(--brand-yellow);
+
+        border: none;
+
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        transition:
+            background 0.25s ease,
+            transform 0.25s ease;
+    }
+
+
+    .contact-banner button[type="submit"]:hover {
+        background: #ffe27f;
+
+        transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       PHOTO CREDIT
+       ========================= */
+
+    .photo-credit {
+        position: fixed;
+
+        bottom: 12px;
+
+        right: 15px;
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.8rem;
+
+        font-weight: 400;
+
+        letter-spacing: 0.05em;
+
+        color: rgba(255, 255, 255, 0.85);
+
+        z-index: 999;
+    }
+
+
+    /* =========================
+       TABLET
+       ========================= */
+
+    @media (max-width: 800px) {
+
+        .courses-section {
+            margin-top: 40px;
+        }
+
+
+        .courses-content {
+            padding: 40px 30px;
+        }
+
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 600px) {
+
+        .menu {
+            top: 15px;
+
+            left: 15px;
+        }
+
+
+        .hero {
+            min-height: 45vh;
+
+            padding: 90px 25px 60px;
+        }
+
+
+        .hero h1 {
+            font-size: 4.5rem;
+        }
+
+
+        .hero h4 {
+            font-size: 0.8rem;
+
+            letter-spacing: 0.14em;
+        }
+
+
+        .courses-section {
+            margin: 40px 20px 75px;
+
+            padding: 0;
+        }
+
+
+        .courses-content {
+            padding: 35px 25px;
+        }
+
+
+        .courses-content p {
+            font-size: 1.2rem;
+        }
+
+
+        .courses-content h2 {
+            font-size: 2.2rem;
+        }
+
+
+        .contact-banner {
+            padding: 70px 20px;
+        }
+
+
+        .contact-banner form {
+            width: 100%;
+        }
+
+
+        .radio-group {
+            gap: 18px;
+        }
+
+
+        .photo-credit {
+            bottom: 8px;
+
+            right: 10px;
+
+            font-size: 0.6rem;
+        }
+
+    }
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     MENU
+     ========================= -->
+
+<nav class="menu">
+
+    <div class="menu-button">
+
+        <span class="menu-icon">☰</span>
+
+        Menu
+
+    </div>
+
+
+    <div class="menu-links">
+
+        <a href="https://megapianostudio.github.io/mps/">
+            Studio
+        </a>
+
+
+        <div class="submenu">
+
+            <a href="https://megapianostudio.github.io/mps/studio/courses">
+                Courses
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/calendar">
+                Calendar
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/teachers">
+                Teachers
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/musicplayspace">
+                Music Play Space
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/musictalk">
+                Music Talk
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/testimonials">
+                Testimonials
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/contact">
+                Contact
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/recruit">
+                Recruit
+            </a>
+
+        </div>
+
+
+        <a href="https://megapianostudio.github.io/mps/pianist">
+            Pianist
+        </a>
+
+
+        <div class="submenu">
+
+            <a href="https://megapianostudio.github.io/mps/pianist/repertoire">
+                Repertoire
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/pianist/video">
+                Video
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/pianist/newsounds">
+                New Sounds
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/pianist/perform">
+                Perform
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+     ========================= -->
+
+<header class="hero">
+
+    <h1>
+        Mega Piano Studio
+    </h1>
+
+    <h4>
+        Courses and Services
+    </h4>
+
+    <div class="hero-rule"></div>
+
+</header>
+
+
+<!-- =========================
+     COURSES AND SERVICES
+     ========================= -->
+
+<main class="courses-section">
+
+    <article class="courses-content">
+
+
+        <h2>
+            Piano and Theory Lessons
+        </h2>
+
+
+        <p>
+            Mega Piano Studio is committed to providing lessons and musical guidance for all.
+            Students who wish to take exams, need help with their music elective programme,
+            or want to learn for leisure are all welcome! Each lesson will be tailored to
+            meet the student’s needs.
+        </p>
+
+
+        <p>
+            Students will be building strong foundation through solfeggi, rhythm training,
+            and ear training. Piano lessons in MP Studio are also closely tied in with theory
+            lessons, especially for students who are preparing for the graded exams. The goal
+            is to deepen understanding and connect music theory, music playing, and music
+            listening. These are all important tools whether you aspire to be a professional
+            musician or just want to enjoy music in your life.
+        </p>
+
+
+        <p>
+            For students preparing for their graded examinations, the fees start at SGD $60
+            for 45 minutes (Grade 1).
+        </p>
+
+
+        <p>
+            Mega Piano Studio also provides lessons for young beginners between the age of
+            3.5-5. The fee is SGD $50 for 30 minutes.
+        </p>
+
+
+        <p>
+            A 20-minute trial lesson also available at only SGD $30.
+        </p>
+
+
+        <p>
+            Please
+            <a href="#contact">
+                contact us
+            </a>
+            for more detailed pricing.
+        </p>
+
+
+
+        <h2>
+            Group Theory Classes
+        </h2>
+
+
+        <p>
+            Group theory classes are also available at MP Studio. Each class will have between
+            3-8 students (Grade 1-5) or 3-5 students (Grade 6-8). In group classes, students
+            will not only be learning from the teacher, but also share musical ideas and
+            experiences among their peers. In addition to learning music theory, group classes
+            are a great way for students to be motivated to work hard, to encourage, and
+            to learn from one another.
+        </p>
+
+
+        <p>
+            <a href="#contact">
+                Contact us
+            </a>
+            to join the waiting list.
+        </p>
+
+
+
+        <h2>
+            Online Lessons
+        </h2>
+
+
+        <p>
+            Interested to start a musical journey but not sure if you have the time to make
+            the travel? Can’t find the right time that will work for you and the teacher?
+            Do not let this be your barrier! MP Studio provides online lessons as well.
+            Just make sure you already have the instrument (a piano or a keyboard), a good
+            wifi, the Zoom meeting app (you can download it for free), and we can start
+            anytime you like!
+        </p>
+
+
+        <p>
+            Please
+            <a href="#contact">
+                contact us
+            </a>
+            for more detailed pricing.
+        </p>
+
+
+
+        <h2>
+            Collaborative Pianist (Accompaniment) service
+        </h2>
+
+
+        <p>
+            We provide accompaniment services for graded examinations, competitions, recitals,
+            and a wide range of other performances. Accompaniment is available for instrumentalists
+            and vocalists of all levels, with each collaboration tailored to the musical and
+            performance needs of the individual. Coaching sessions also include aural (ear)
+            training, helping students develop the listening and musicianship skills required
+            for examinations and confident musical performance. In addition to instrumental and
+            vocal accompaniment, we are also available for musical theatre productions, choir
+            accompaniment, and ballet classes and performances.
+        </p>
+
+
+        <p>
+            Fees for accompaniment start at $60, and vary depending on the level and requirements
+            of the examination, the nature of the event or performance, the amount of repertoire
+            involved, rehearsal requirements, and the preparation timeline.
+        </p>
+
+
+        <p>
+            Please
+            <a href="#contact">
+                get in touch
+            </a>
+            for more detailed pricing and to discuss your specific accompaniment needs.
+        </p>
+
+
+
+        <h2>
+            Other Music Functions
+        </h2>
+
+
+        <p>
+            Need a musician for other functions/events?
+            <a href="#contact">
+                Contact Mega Piano Studio
+            </a>
+            to discuss more about your requirements and options.
+        </p>
+
+
+    </article>
+
+</main>
+
+
+<!-- =========================
+     CONTACT FORM
+     ========================= -->
+
+<section id="contact" class="contact-banner">
+
+    <h2>
+        Get in Touch
+    </h2>
+
+
+    <p>
+        Interested in lessons, accompaniment, or performance services?
+        Please fill out the form below and let us know how we can help.
+    </p>
+
+
+    <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+    >
+
+
+        <input
+            type="hidden"
+            name="access_key"
+            value="d9a8071b-3550-4b20-9f11-2dbc6dd62039"
+        >
+
+
+        <input
+            type="hidden"
+            name="subject"
+            value="Mega Piano Studio Contact Form"
+        >
+
+
+        <!-- YOUR NAME -->
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Your name"
+            required
+        >
+
+
+        <!-- CHILD'S NAME -->
+
+        <div class="form-group">
+
+            <input
+                type="text"
+                name="child_name_1"
+                placeholder="Your child's name: [if you are registering lessons for your child]"
+            >
+
+
+            <button
+                type="button"
+                class="add-sibling"
+                id="add-sibling"
+            >
+                + Add sibling
+            </button>
+
+
+            <div id="sibling-fields"></div>
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+        >
+
+
+        <!-- PHONE -->
+
+        <input
+            type="tel"
+            name="phone"
+            placeholder="Phone (WhatsApp)"
+            required
+        >
+
+
+        <!-- PREFERRED COMMUNICATION -->
+
+        <div class="form-group">
+
+            <label>
+                Preferred communication method
+            </label>
+
+
+            <div class="radio-group">
+
+                <label class="radio-option">
+
+                    <input
+                        type="radio"
+                        name="preferred_communication"
+                        value="WhatsApp"
+                        required
+                    >
+
+                    WhatsApp
+
+                </label>
+
+
+                <label class="radio-option">
+
+                    <input
+                        type="radio"
+                        name="preferred_communication"
+                        value="Email"
+                    >
+
+                    Email
+
+                </label>
+
+            </div>
+
+
+            <p class="form-note">
+                We will only contact you between Monday - Saturday, 9am – 6pm.
+            </p>
+
+        </div>
+
+
+        <!-- TYPE OF SERVICE -->
+
+        <div class="form-group">
+
+            <label for="service-type">
+                Type of service
+            </label>
+
+
+            <select
+                name="service_type"
+                id="service-type"
+                required
+            >
+
+                <option value="" disabled selected>
+                    Please select
+                </option>
+
+                <option value="Lesson">
+                    Lesson
+                </option>
+
+                <option value="Accompaniment">
+                    Accompaniment
+                </option>
+
+                <option value="Performance">
+                    Performance
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- PIANO LESSON GRADE -->
+
+        <div
+            class="form-group"
+            id="lesson-grade-group"
+            style="display: none;"
+        >
+
+            <label for="lesson-grade">
+                Piano lesson grade
+            </label>
+
+
+            <select
+                name="piano_lesson_grade"
+                id="lesson-grade"
+            >
+
+                <option value="" disabled selected>
+                    Please select
+                </option>
+
+                <option value="Leisure">
+                    Leisure
+                </option>
+
+                <option value="Beginner">
+                    Beginner
+                </option>
+
+                <option value="Grade 1">
+                    Grade 1
+                </option>
+
+                <option value="Grade 2">
+                    Grade 2
+                </option>
+
+                <option value="Grade 3">
+                    Grade 3
+                </option>
+
+                <option value="Grade 4">
+                    Grade 4
+                </option>
+
+                <option value="Grade 5">
+                    Grade 5
+                </option>
+
+                <option value="Grade 6">
+                    Grade 6
+                </option>
+
+                <option value="Grade 7">
+                    Grade 7
+                </option>
+
+                <option value="Grade 8">
+                    Grade 8
+                </option>
+
+                <option value="Diploma">
+                    Diploma
+                </option>
+
+                <option value="LRSM / LTCL">
+                    LRSM / LTCL
+                </option>
+
+                <option value="FRSM / FTCL">
+                    FRSM / FTCL
+                </option>
+
+                <option value="MEP Programme">
+                    MEP Programme
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- TYPE OF ACCOMPANIMENT -->
+
+        <div
+            class="form-group"
+            id="accompaniment-type-group"
+            style="display: none;"
+        >
+
+            <label for="accompaniment-type">
+                Type of accompaniment
+            </label>
+
+
+            <select
+                name="accompaniment_type"
+                id="accompaniment-type"
+            >
+
+                <option value="" disabled selected>
+                    Please select
+                </option>
+
+                <option value="Graded">
+                    Graded
+                </option>
+
+                <option value="Audition">
+                    Audition
+                </option>
+
+                <option value="Others">
+                    Others
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- COMMENT -->
+
+        <textarea
+            name="message"
+            rows="8"
+            placeholder="Comment: Let us know if you need both lesson and accompaniment services, or something that is not listed above."
+        ></textarea>
+
+
+        <!-- SUBMIT -->
+
+        <button type="submit">
+            Submit
+        </button>
+
+
+    </form>
+
+</section>
+
+
+<!-- =========================
+     PHOTO CREDIT
+     ========================= -->
+
+<div class="photo-credit">
+    Drawing: twocentsmusic
+</div>
+
+
+<!-- =========================
+     FORM JAVASCRIPT
+     ========================= -->
+
+<script>
+
+
+    /* =========================
+       ADD SIBLING
+       ========================= */
+
+    const addSiblingButton =
+        document.getElementById("add-sibling");
+
+
+    const siblingFields =
+        document.getElementById("sibling-fields");
+
+
+    let siblingCount = 1;
+
+
+    addSiblingButton.addEventListener(
+        "click",
+        function () {
+
+            siblingCount++;
+
+
+            const siblingInput =
+                document.createElement("input");
+
+
+            siblingInput.type = "text";
+
+
+            siblingInput.name =
+                "child_name_" + siblingCount;
+
+
+            siblingInput.placeholder =
+                "Sibling's name";
+
+
+            siblingInput.style.marginTop =
+                "10px";
+
+
+            siblingFields.appendChild(
+                siblingInput
+            );
+
+        }
+    );
+
+
+    /* =========================
+       SERVICE TYPE
+       ========================= */
+
+    const serviceType =
+        document.getElementById("service-type");
+
+
+    const lessonGradeGroup =
+        document.getElementById("lesson-grade-group");
+
+
+    const accompanimentTypeGroup =
+        document.getElementById("accompaniment-type-group");
+
+
+    const lessonGrade =
+        document.getElementById("lesson-grade");
+
+
+    const accompanimentType =
+        document.getElementById("accompaniment-type");
+
+
+    serviceType.addEventListener(
+        "change",
+        function () {
+
+
+            lessonGradeGroup.style.display =
+                "none";
+
+
+            accompanimentTypeGroup.style.display =
+                "none";
+
+
+            lessonGrade.required =
+                false;
+
+
+            accompanimentType.required =
+                false;
+
+
+            lessonGrade.value =
+                "";
+
+
+            accompanimentType.value =
+                "";
+
+
+            if (this.value === "Lesson") {
+
+                lessonGradeGroup.style.display =
+                    "flex";
+
+                lessonGrade.required =
+                    true;
+
+            }
+
+
+            if (this.value === "Accompaniment") {
+
+                accompanimentTypeGroup.style.display =
+                    "flex";
+
+                accompanimentType.required =
+                    true;
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+</html>

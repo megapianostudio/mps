@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Mega Piano Studio — Video</title>
+
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&family=Niconne&display=swap"
+    rel="stylesheet"
+>
+```
+
+<style>
+
+    :root {
+
+        --brand-yellow: #ffd145;
+        --brand-gold: #c99b1d;
+
+        --warm-cream: #faf8f2;
+        --soft-cream: #f2eee5;
+
+        --charcoal: #201f1c;
+        --soft-charcoal: #4f4b44;
+
+        --white: #ffffff;
+
+    }
+
+
+    * {
+
+        margin: 0;
+        padding: 0;
+
+        box-sizing: border-box;
+
+    }
+
+
+    html {
+
+        scroll-behavior: smooth;
+
+    }
+
+
+    body {
+
+        margin: 0;
+
+        background-color: var(--warm-cream);
+
+        color: var(--charcoal);
+
+        font-family: "Montserrat", sans-serif;
+
+    }
+
+
+    body::before {
+
+        content: "";
+
+        position: fixed;
+
+        inset: 0;
+
+        z-index: -1;
+
+        background-image: url("../image/3.jpg");
+
+        background-size: 120% 120%;
+
+        background-position: center center;
+
+        background-repeat: no-repeat;
+
+    }
+
+
+    /* MENU */
+
+    .menu {
+
+        position: fixed;
+
+        top: 25px;
+        left: 25px;
+
+        z-index: 1000;
+
+    }
+
+
+    .menu-button {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 14px 18px;
+
+        background: var(--charcoal);
+
+        color: var(--warm-cream);
+
+        font-size: 0.75rem;
+
+        font-weight: 600;
+
+        letter-spacing: 0.12em;
+
+        text-transform: uppercase;
+
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.15);
+
+    }
+
+
+    .menu-icon {
+
+        font-size: 1.2rem;
+
+        line-height: 1;
+
+    }
+
+
+    .menu-links {
+
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 220px;
+
+        margin-top: 8px;
+
+        background: var(--white);
+
+        border-radius: 4px;
+
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.15);
+
+        overflow: hidden;
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform: translateY(-8px);
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+
+    }
+
+
+    .menu:hover .menu-links {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: translateY(0);
+
+    }
+
+
+    .menu-links a {
+
+        display: block;
+
+        padding: 15px 20px;
+
+        color: var(--charcoal);
+
+        text-decoration: none;
+
+        font-size: 0.75rem;
+
+        font-weight: 600;
+
+        letter-spacing: 0.08em;
+
+        text-transform: uppercase;
+
+        border-bottom:
+            1px solid var(--soft-cream);
+
+        transition:
+            background 0.2s ease,
+            padding-left 0.2s ease;
+
+    }
+
+
+    .menu-links a:last-child {
+
+        border-bottom: none;
+
+    }
+
+
+    .menu-links a:hover {
+
+        background: var(--soft-cream);
+
+        padding-left: 26px;
+
+    }
+
+
+    .submenu {
+
+        background: #f7f4ec;
+
+    }
+
+
+    .submenu a {
+
+        padding-left: 35px;
+
+        font-size: 0.68rem;
+
+        font-weight: 500;
+
+        letter-spacing: 0.06em;
+
+    }
+
+
+    .submenu a:hover {
+
+        padding-left: 41px;
+
+    }
+
+
+    /* HERO */
+
+    .hero {
+
+        min-height: 28vh;
+
+        padding: 35px 30px 25px;
+
+        background: linear-gradient(
+            135deg,
+            rgba(255, 209, 69, 0.97),
+            rgba(255, 225, 135, 0.92)
+        );
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-align: center;
+
+    }
+
+
+    .hero h1 {
+
+        font-family: "Niconne", cursive;
+
+        font-size:
+            clamp(4.5rem, 8vw, 7rem);
+
+        font-weight: normal;
+
+        line-height: 1;
+
+        color: var(--charcoal);
+
+        margin-bottom: 18px;
+
+    }
+
+
+    .hero h4 {
+
+        font-size: 0.95rem;
+
+        font-weight: 500;
+
+        letter-spacing: 0.2em;
+
+        text-transform: uppercase;
+
+        color: #5a5138;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .hero-rule {
+
+        width: 70px;
+
+        height: 2px;
+
+        background: var(--charcoal);
+
+    }
+
+
+    /* VIDEO SECTION */
+
+    .video-section {
+
+        max-width: 1200px;
+
+        margin: 65px auto 100px;
+
+        padding: 0 30px;
+
+    }
+
+
+    .video-content {
+
+        background:
+            rgba(250, 248, 242, 0.94);
+
+        padding: 55px 65px;
+
+        border-radius: 8px;
+
+        box-shadow:
+            0 10px 35px
+            rgba(0, 0, 0, 0.10);
+
+    }
+
+
+    .video-content h2 {
+
+        font-family:
+            "Cormorant Garamond",
+            serif;
+
+        font-size: 2.7rem;
+
+        font-weight: 600;
+
+        color: var(--charcoal);
+
+        margin-bottom: 22px;
+
+    }
+
+
+    .video-content h2::before {
+
+        content: "";
+
+        display: block;
+
+        width: 50px;
+
+        height: 3px;
+
+        background: var(--brand-yellow);
+
+        margin-bottom: 20px;
+
+    }
+
+
+    .video-content p {
+
+        font-family:
+            "Cormorant Garamond",
+            serif;
+
+        font-size: 1.4rem;
+
+        line-height: 1.7;
+
+        color: var(--soft-charcoal);
+
+        margin-bottom: 25px;
+
+    }
+
+
+    /* YOUTUBE BUTTON */
+
+    .youtube-link {
+
+        display: inline-block;
+
+        margin-bottom: 45px;
+
+        transition:
+            transform 0.2s ease;
+
+    }
+
+
+    .youtube-link:hover {
+
+        transform:
+            translateY(-3px);
+
+    }
+
+
+    .youtube-button {
+
+        display: block;
+
+        width: 145px;
+
+        height: auto;
+
+    }
+
+
+    /* VIDEO GRID */
+
+    .video-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 35px;
+
+    }
+
+
+    .video-wrapper {
+
+        position: relative;
+
+        width: 100%;
+
+        aspect-ratio: 16 / 9;
+
+        overflow: hidden;
+
+        border-radius: 6px;
+
+        background: var(--charcoal);
+
+        box-shadow:
+            0 8px 25px
+            rgba(0, 0, 0, 0.15);
+
+    }
+
+
+    .video-wrapper iframe {
+
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+
+        height: 100%;
+
+        border: 0;
+
+    }
+
+
+    /* PHOTO CREDIT */
+
+    .photo-credit {
+
+        position: fixed;
+
+        bottom: 12px;
+
+        right: 15px;
+
+        font-family:
+            "Montserrat",
+            sans-serif;
+
+        font-size: 0.8rem;
+
+        font-weight: 400;
+
+        letter-spacing: 0.05em;
+
+        color:
+            rgba(255, 255, 255, 0.85);
+
+        z-index: 999;
+
+    }
+
+
+    /* TABLET */
+
+    @media (max-width: 800px) {
+
+        .video-section {
+
+            margin-top: 40px;
+
+        }
+
+
+        .video-content {
+
+            padding: 40px 30px;
+
+        }
+
+
+        .video-grid {
+
+            grid-template-columns:
+                1fr;
+
+            gap: 30px;
+
+        }
+
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+        .menu {
+
+            top: 15px;
+
+            left: 15px;
+
+        }
+
+
+        .hero {
+
+            min-height: 45vh;
+
+            padding:
+                90px 25px 60px;
+
+        }
+
+
+        .hero h1 {
+
+            font-size: 4.5rem;
+
+        }
+
+
+        .hero h4 {
+
+            font-size: 0.8rem;
+
+            letter-spacing: 0.14em;
+
+        }
+
+
+        .video-section {
+
+            margin:
+                40px 20px 75px;
+
+            padding: 0;
+
+        }
+
+
+        .video-content {
+
+            padding: 35px 25px;
+
+        }
+
+
+        .video-content h2 {
+
+            font-size: 2.2rem;
+
+        }
+
+
+        .video-content p {
+
+            font-size: 1.2rem;
+
+        }
+
+
+        .youtube-button {
+
+            width: 125px;
+
+        }
+
+
+        .photo-credit {
+
+            bottom: 8px;
+
+            right: 10px;
+
+            font-size: 0.6rem;
+
+        }
+
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="menu">
+
+```
+<div class="menu-button">
+
+    <span class="menu-icon">
+        ☰
+    </span>
+
+    Menu
+
+</div>
+
+
+<div class="menu-links">
+
+
+    <a
+        href="https://megapianostudio.github.io/mps/"
+    >
+        Studio
+    </a>
+
+
+    <div class="submenu">
+
+
+        <a
+            href="https://megapianostudio.github.io/mps/studio/courses"
+        >
+            Courses
+        </a>
+
+
+        <a
+            href="https://megapianostudio.github.io/mps/studio/calendar"
+        >
+            Calendar
+        </a>
+
+
+        <a
+            href="https://megapianostudio.github.io/mps/studio/teachers"
+        >
+            Teachers
+        </a>
+
+
+        <a
+            href="https://megapianostudio.github.io/mps/studio/musicplayspace"
+        >
+            Music Play Space
+        </a>
+
+
+        <a
+            href="https://megapianostudio.github.io/mps/studio/musictalk"
+        >
+            Music Talk
+        </a>
+
+
+        <a
+            href="https://megapianostudio.github.io/mps/studio/testimonials"
+        >
+            Testimonials
+        </a>
+
+
+        <a
+            href="https://megapianostudio.github.io/mps/studio/contact"
+        >
+            Contact
+        </a>
+
+
+        <a
+            href="https://megapianostudio.github.io/mps/studio/recruit"
+        >
+            Recruit
+        </a>
+
+
+    </div>
+
+
+    <a
+        href="https://megapianostudio.github.io/mps/pianist"
+    >
+        Pianist
+    </a>
+
+
+    <div class="submenu">
+
+
+        <a
+            href="https://megapianostudio.github.io/mps/pianist/repertoire"
+        >
+            Repertoire
+        </a>
+
+
+        <a
+            href="https://megapianostudio.github.io/mps/pianist/video"
+        >
+            Video
+        </a>
+
+
+        <a
+            href="https://megapianostudio.github.io/mps/pianist/newsounds"
+        >
+            New Sounds
+        </a>
+
+
+        <a
+            href="https://megapianostudio.github.io/mps/pianist/perform"
+        >
+            Perform
+        </a>
+
+
+    </div>
+
+
+</div>
+```
+
+</nav>
+
+<header class="hero">
+
+```
+<h1>
+    Mega Piano Studio
+</h1>
+
+
+<h4>
+    Video
+</h4>
+
+
+<div class="hero-rule"></div>
+```
+
+</header>
+
+<main class="video-section">
+
+```
+<article class="video-content">
+
+
+    <h2>
+        Video
+    </h2>
+
+    <div class="video-grid">
+
+
+        <div class="video-wrapper">
+
+            <iframe
+                src="https://www.youtube.com/embed/JRCbvf8w7BA"
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+
+        </div>
+
+
+        <div class="video-wrapper">
+
+            <iframe
+                src="https://www.youtube.com/embed/eT9QhsggDDk"
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+
+        </div>
+
+
+        <div class="video-wrapper">
+
+            <iframe
+                src="https://www.youtube.com/embed/MxJGBHwVEHQ"
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+
+        </div>
+
+
+        <div class="video-wrapper">
+
+            <iframe
+                src="https://www.youtube.com/embed/yXdQZ66wNJU"
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+
+        </div>
+
+
+    </div>
+    <div class="youtube-section">
+        <br><br>
+        <p> Watch performances and explore more music on my YouTube channel. </p>
+        <a class="youtube-link" href="http://www.youtube.com/@megariahalimpianist" target="_blank" rel="noopener noreferrer" > <img class="youtube-button" src="../image/youtube_button.png" alt="Visit Mega Piano Studio on YouTube" > </a>
+    </div>
+
+
+</article>
+```
+
+</main>
+
+<div class="photo-credit">
+    Picture: twocentsmusic
+</div>
+
+</body>
+
+</html>

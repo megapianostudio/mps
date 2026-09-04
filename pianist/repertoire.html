@@ -1,0 +1,5774 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mega Piano Studio — Repertoire</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&family=Niconne&display=swap" rel="stylesheet">
+
+
+<style>
+
+    :root {
+        --brand-yellow: #ffd145;
+        --brand-gold: #c99b1d;
+        --warm-cream: #faf8f2;
+        --soft-cream: #f2eee5;
+        --charcoal: #201f1c;
+        --soft-charcoal: #4f4b44;
+        --white: #ffffff;
+    }
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+        margin: 0;
+        background-color: var(--warm-cream);
+        color: var(--charcoal);
+        font-family: "Montserrat", sans-serif;
+    }
+
+
+    /* =========================
+       MENU
+       ========================= */
+
+    .menu {
+        position: fixed;
+        top: 25px;
+        left: 25px;
+        z-index: 1000;
+    }
+
+
+    .menu-button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 14px 18px;
+
+        background: var(--charcoal);
+        color: var(--warm-cream);
+
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.15);
+    }
+
+
+    .menu-icon {
+        font-size: 1.2rem;
+        line-height: 1;
+    }
+
+
+    .menu-links {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 220px;
+        margin-top: 8px;
+
+        background: var(--white);
+
+        border-radius: 4px;
+
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.15);
+
+        overflow: hidden;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translateY(-8px);
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+    }
+
+
+    .menu:hover .menu-links {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+
+    .menu-links a {
+        display: block;
+
+        padding: 15px 20px;
+
+        color: var(--charcoal);
+
+        text-decoration: none;
+
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        border-bottom: 1px solid var(--soft-cream);
+
+        transition:
+            background 0.2s ease,
+            padding-left 0.2s ease;
+    }
+
+
+    .menu-links a:last-child {
+        border-bottom: none;
+    }
+
+
+    .menu-links a:hover {
+        background: var(--soft-cream);
+        padding-left: 26px;
+    }
+
+
+    .submenu {
+        background: #f7f4ec;
+    }
+
+
+    .submenu a {
+        padding-left: 35px;
+
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+    }
+
+
+    .submenu a:hover {
+        padding-left: 41px;
+    }
+
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+        min-height: 28vh;
+
+        padding: 35px 30px 25px;
+
+        background: linear-gradient(
+            135deg,
+            rgba(255, 209, 69, 0.97),
+            rgba(255, 225, 135, 0.92)
+        );
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+    }
+
+
+    .hero h1 {
+        font-family: "Niconne", cursive;
+
+        font-size: clamp(4.5rem, 8vw, 7rem);
+
+        font-weight: normal;
+        line-height: 1;
+
+        color: var(--charcoal);
+
+        margin-bottom: 18px;
+    }
+
+
+    .hero h4 {
+        font-size: 0.95rem;
+
+        font-weight: 500;
+
+        letter-spacing: 0.2em;
+
+        text-transform: uppercase;
+
+        color: #5a5138;
+
+        margin-bottom: 25px;
+    }
+
+
+    .hero-rule {
+        width: 70px;
+        height: 2px;
+
+        background: var(--charcoal);
+    }
+
+
+    /* =========================
+       MAIN LAYOUT
+       ========================= */
+
+    .repertoire-section {
+        max-width: 1200px;
+
+        margin: 65px auto 100px;
+
+        padding: 0 30px;
+
+        display: grid;
+
+        grid-template-columns: 430px 1fr;
+
+        gap: 65px;
+
+        align-items: start;
+    }
+
+
+    /* =========================
+       IMAGE
+       ========================= */
+
+    .repertoire-image {
+        position: sticky;
+        top: 40px;
+    }
+
+
+    .repertoire-image img {
+        display: block;
+
+        width: 100%;
+        height: auto;
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 12px 35px rgba(0, 0, 0, 0.15);
+    }
+
+
+    .photo-credit {
+        margin-top: 8px;
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.8rem;
+
+        font-weight: 400;
+
+        letter-spacing: 0.05em;
+
+        color: var(--soft-charcoal);
+
+        text-align: left;
+    }
+
+
+    /* =========================
+       REPERTOIRE CONTENT
+       ========================= */
+
+    .repertoire-content {
+        background: rgba(255, 255, 255, 0.82);
+
+        padding: 50px 55px;
+
+        border-radius: 8px;
+
+        box-shadow:
+            0 10px 35px rgba(0, 0, 0, 0.06);
+    }
+
+
+    .repertoire-intro {
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 1.5rem;
+
+        line-height: 1.65;
+
+        color: var(--soft-charcoal);
+
+        margin-bottom: 35px;
+    }
+
+
+    /* =========================
+       SEARCH
+       ========================= */
+
+    .search-area {
+        margin-bottom: 45px;
+
+        padding: 25px;
+
+        background: var(--soft-cream);
+
+        border-radius: 6px;
+
+        border-left: 4px solid var(--brand-yellow);
+    }
+
+
+    .search-label {
+        display: block;
+
+        margin-bottom: 10px;
+
+        font-size: 0.75rem;
+
+        font-weight: 600;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+
+        color: var(--charcoal);
+    }
+
+
+    .search-wrapper {
+        position: relative;
+    }
+
+
+    .search-icon {
+        position: absolute;
+
+        left: 16px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        font-size: 1rem;
+
+        color: var(--soft-charcoal);
+
+        pointer-events: none;
+    }
+
+
+    #repertoire-search {
+        width: 100%;
+
+        padding: 15px 45px 15px 44px;
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.9rem;
+
+        color: var(--charcoal);
+
+        background: var(--white);
+
+        border: 1px solid #d8d2c5;
+
+        border-radius: 4px;
+
+        outline: none;
+
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+
+    #repertoire-search:focus {
+        border-color: var(--brand-gold);
+
+        box-shadow:
+            0 0 0 2px rgba(255, 209, 69, 0.25);
+    }
+
+
+    .clear-search {
+        position: absolute;
+
+        right: 12px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        width: 28px;
+        height: 28px;
+
+        border: none;
+
+        background: transparent;
+
+        color: var(--soft-charcoal);
+
+        font-size: 1.1rem;
+
+        cursor: pointer;
+
+        display: none;
+    }
+
+
+    .clear-search:hover {
+        color: var(--charcoal);
+    }
+
+
+    .search-count {
+        margin-top: 10px;
+
+        font-size: 0.72rem;
+
+        color: var(--soft-charcoal);
+
+        letter-spacing: 0.03em;
+    }
+
+
+    /* =========================
+       CATEGORY
+       ========================= */
+
+    .repertoire-category {
+        margin-bottom: 55px;
+    }
+
+
+    .repertoire-category:last-child {
+        margin-bottom: 0;
+    }
+
+
+    .category-title {
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 2.5rem;
+
+        font-weight: 600;
+
+        color: var(--charcoal);
+
+        margin-bottom: 28px;
+    }
+
+
+    .category-title::before {
+        content: "";
+
+        display: block;
+
+        width: 50px;
+
+        height: 3px;
+
+        background: var(--brand-yellow);
+
+        margin-bottom: 16px;
+    }
+
+
+    /* =========================
+       COMPOSER BLOCK
+       ========================= */
+
+    .composer-block {
+        margin-bottom: 25px;
+
+        border-bottom: 1px solid #ddd7ca;
+
+        padding-bottom: 20px;
+    }
+
+
+    .composer-block:last-child {
+        border-bottom: none;
+    }
+
+
+    .composer-name {
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 1.45rem;
+
+        font-weight: 600;
+
+        color: var(--charcoal);
+
+        margin-bottom: 8px;
+    }
+
+
+    .composer-note {
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 1.05rem;
+
+        font-style: italic;
+
+        color: var(--soft-charcoal);
+
+        margin-bottom: 8px;
+    }
+
+
+    .work-list {
+        list-style: none;
+
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .work {
+        padding: 8px 0 8px 18px;
+
+        position: relative;
+
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 1.15rem;
+
+        line-height: 1.45;
+
+        color: var(--soft-charcoal);
+    }
+
+
+    .work::before {
+        content: "—";
+
+        position: absolute;
+
+        left: 0;
+
+        color: var(--brand-gold);
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.75rem;
+    }
+
+
+    .work-details {
+        display: block;
+
+        margin-top: 3px;
+
+        font-size: 0.98rem;
+
+        font-style: italic;
+
+        color: #6a655d;
+    }
+
+
+    .work-details span {
+        display: block;
+    }
+
+
+    .work-details span + span {
+        margin-top: 2px;
+    }
+
+
+    /* =========================
+       NO RESULTS
+       ========================= */
+
+    .no-results {
+        display: none;
+
+        padding: 35px 20px;
+
+        text-align: center;
+
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 1.4rem;
+
+        color: var(--soft-charcoal);
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 800px) {
+
+        .repertoire-section {
+            grid-template-columns: 1fr;
+
+            gap: 40px;
+
+            margin-top: 40px;
+        }
+
+
+        .repertoire-image {
+            position: relative;
+
+            top: auto;
+
+            max-width: 500px;
+
+            margin: 0 auto;
+        }
+
+
+        .repertoire-content {
+            padding: 40px 30px;
+        }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+        .menu {
+            top: 15px;
+            left: 15px;
+        }
+
+
+        .hero {
+            min-height: 45vh;
+
+            padding: 90px 25px 60px;
+        }
+
+
+        .hero h1 {
+            font-size: 4.5rem;
+        }
+
+
+        .hero h4 {
+            font-size: 0.8rem;
+
+            letter-spacing: 0.14em;
+        }
+
+
+        .repertoire-section {
+            margin: 40px 20px 75px;
+
+            padding: 0;
+
+            gap: 30px;
+        }
+
+
+        .repertoire-content {
+            padding: 35px 25px;
+        }
+
+
+        .repertoire-intro {
+            font-size: 1.35rem;
+        }
+
+
+        .category-title {
+            font-size: 2.2rem;
+        }
+
+
+        .composer-name {
+            font-size: 1.35rem;
+        }
+
+
+        .work {
+            font-size: 1.1rem;
+        }
+
+
+        .photo-credit {
+            font-size: 0.6rem;
+        }
+
+    }
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     MENU
+     ========================= -->
+
+<nav class="menu">
+
+    <div class="menu-button">
+
+        <span class="menu-icon">☰</span>
+
+        Menu
+
+    </div>
+
+
+    <div class="menu-links">
+
+        <a href="https://megapianostudio.github.io/mps/">
+            Studio
+        </a>
+
+
+        <div class="submenu">
+
+            <a href="https://megapianostudio.github.io/mps/studio/courses">
+                Courses
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/calendar">
+                Calendar
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/teachers">
+                Teachers
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/musicplayspace">
+                Music Play Space
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/musictalk">
+                Music Talk
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/testimonials">
+                Testimonials
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/contact">
+                Contact
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/recruit">
+                Recruit
+            </a>
+
+        </div>
+
+
+        <a href="https://megapianostudio.github.io/mps/pianist">
+            Pianist
+        </a>
+
+
+        <div class="submenu">
+
+            <a href="https://megapianostudio.github.io/mps/pianist/repertoire">
+                Repertoire
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/pianist/video">
+                Video
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/pianist/newsounds">
+                New Sounds
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/pianist/perform">
+                Perform
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+     ========================= -->
+
+<header class="hero">
+
+    <h1>Mega Piano Studio</h1>
+
+    <h4>
+        Repertoire
+    </h4>
+
+    <div class="hero-rule"></div>
+
+</header>
+
+
+<!-- =========================
+     MAIN
+     ========================= -->
+
+<main class="repertoire-section">
+
+
+    <!-- IMAGE -->
+
+    <div class="repertoire-image">
+
+        <img
+            src="../image/12.jpg"
+            alt="Megaria Halim performing"
+        >
+
+        <div class="photo-credit">
+            Art: Jack Herscowitz
+        </div>
+
+    </div>
+
+
+    <!-- CONTENT -->
+
+    <article class="repertoire-content">
+
+
+        <p class="repertoire-intro">
+
+            A selection of repertoire performed and collaborated on by
+            Megaria Halim, spanning solo piano, chamber music, contemporary
+            music, vocal repertoire, musical theatre, and works for larger
+            ensembles.
+
+        </p>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-area">
+
+            <label
+                class="search-label"
+                for="repertoire-search"
+            >
+                Search repertoire
+            </label>
+
+
+            <div class="search-wrapper">
+
+                <span class="search-icon">
+                    ⌕
+                </span>
+
+
+                <input
+                    type="search"
+                    id="repertoire-search"
+                    placeholder="Search by composer or title..."
+                    autocomplete="off"
+                >
+
+
+                <button
+                    type="button"
+                    class="clear-search"
+                    id="clear-search"
+                    aria-label="Clear search"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div
+                class="search-count"
+                id="search-count"
+            >
+                Showing all repertoire
+            </div>
+
+        </div>
+
+
+        <div id="repertoire-container">
+
+
+            <!-- ==================================================
+                 CLASSICAL SOLO PIANO
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Classical Solo Piano"
+            >
+
+                <h2 class="category-title">
+                    Classical Solo Piano
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Bach, Johann Sebastian
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Partita no. 2 in C minor, BWV 826
+                        </li>
+
+                        <li class="work">
+                            Partita no. 6 in E minor, BWV 830
+                        </li>
+
+                        <li class="work">
+                            Prelude and Fugue in F-sharp major, BWV 858
+                        </li>
+
+                        <li class="work">
+                            Prelude and Fugue in B minor, BWV 893
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Beethoven, Ludwig van
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Piano Sonata in G major, op. 31 no. 1
+                        </li>
+
+                        <li class="work">
+                            Piano Sonata in E-flat major, op. 81a “Les adieux”
+                        </li>
+
+                        <li class="work">
+                            Piano Sonata in F minor, op. 57 “Appassionata”
+                        </li>
+
+                        <li class="work">
+                            Piano Sonata in E major, op. 109
+                        </li>
+
+                        <li class="work">
+                            Piano Sonata in C minor, op. 111
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Berg, Alban
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Piano Sonata, op. 1
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Brahms, Johannes
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Zwei Rhapsodien, op. 79
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Chaminade, Cécile
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Étude de Concert op. 35 no. 2, “Automne”
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Chopin, Frédéric
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Nocturne in D-flat major, op. 27 no. 2
+                        </li>
+
+                        <li class="work">
+                            Nocturne in C minor, op. 48 no. 1
+                        </li>
+
+                        <li class="work">
+                            Scherzo in B-flat minor, op. 31
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Mozart, Wolfgang Amadeus
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Piano Sonata in G major, KV 283
+                        </li>
+
+                        <li class="work">
+                            Piano Sonata in D major, KV 284
+                        </li>
+
+                        <li class="work">
+                            Piano Sonata in C major, KV 309
+                        </li>
+
+                        <li class="work">
+                            Piano Sonata in A minor, KV 310
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Rachmaninoff, Sergei
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Étude op. 33 no. 4
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schubert, Franz
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Impromptu in A-flat major, op. 90 no. 4
+                        </li>
+
+                        <li class="work">
+                            Piano Sonata in A minor, op. 143, D. 784
+                        </li>
+
+                        <li class="work">
+                            Piano Sonata in A minor, op. 42, D. 845
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schumann, Robert
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Piano Sonata in G minor, op. 22
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Szymanowski, Karol
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Etude op. 4 no. 3: Andante - in modo d’una canzona
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 CONTEMPORARY SOLO PIANO
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Contemporary Solo Piano"
+            >
+
+                <h2 class="category-title">
+                    Contemporary Solo Piano
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Cage, John
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonatas and Interludes
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Chua, Jon Lin
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Huis Clos
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Chow, Jun Yi
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Three Short Malay Pieces
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Crumb, George
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Makrokosmos, Vol. II
+
+                            <span class="work-details">
+                                <span>1. Morning Music (Genesis II)</span>
+                                <span>2. The Mystic Chord</span>
+                                <span>3. Rain-Death Variations</span>
+                                <span>4. Twin Suns (Doppelgänger aus der Ewigkeit) [SYMBOL]</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Fisher, Salina
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Uchi-Soto (内外)
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Fung, Vivian
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Glimpses for Prepared Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Kapustin, Nikolai
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Concert Etude op. 40 no. 6 “Pastorale”
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Lachenmann, Helmut
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Ein Kinderspiel
+                        </li>
+
+                        <li class="work">
+                            Wiegenmusik
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Lee, Christine
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Crystal Glass (for piano and electronics)
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Ligeti, Györgi
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Musica Ricercata
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Lizée, Nicole
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Hitchcock Etude (for piano, soundtrack and video)
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Manoury, Philippe
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Toccata for Piano, extraite de “Passacaille pour Tokyo”
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Prangcharoen, Narong
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Three Minds
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Sharpley, John
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Concert Etudes for Piano, “For the Left Hand”
+                        </li>
+
+                        <li class="work">
+                            Concert Etudes for Piano, “For the Right Hand”
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Tan Dun
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            C-A-G-E
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Tanaka, Karen
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Crystalline
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Tangkulung, Ivan
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Postcards from Bali
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Tokuyama, Minako
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Musica Nara
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Ung, Chinary
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Seven Mirrors
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Vine, Carl
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Piano Sonata no. 1
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 PIANO FOUR HANDS
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Piano Four-Hands"
+            >
+
+                <h2 class="category-title">
+                    Piano Four-Hands
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Casella, Alfredo
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Puppazetti, op. 27
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Crumb, George
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Makrokosmos, Vol. IV
+
+                            <span class="work-details">
+                                <span>I. Alpha Centauri</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schubert, Franz
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Fantasy in F minor for Four Hands, D 940
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Sharpley, John
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            3 Piece
+
+                            <span class="work-details">
+                                <span>1. Square Dance Fantasy</span>
+                                <span>2. Blues</span>
+                                <span>3. Round Dance Fantasy</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 TWO PIANOS
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Two Pianos"
+            >
+
+                <h2 class="category-title">
+                    Two Pianos
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Bennett, Richard Rodney
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Four Pieces Suite (Divertimento)
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Bernstein, Leonard
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Excerpts from West Side Story for Two Pianos
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Brahms, Johannes
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Piano Sonata in F minor for Two Pianos, op. 34b
+
+                            <span class="work-details">
+                                <span>IV. Poco sostenuto - Allegro non troppo - Presto, non troppo</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Copland, Aaron
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Billy the Kid for Two Pianos
+                        </li>
+
+                        <li class="work">
+                            Danzon Cubano for Two Pianos
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Corigliano, John
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Kaleidoscope for Two Pianos
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Gershwin, George
+                    </h3>
+
+                    <div class="composer-note">
+                        arr. Percy Grainger
+                    </div>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Porgy and Bess Fantasy for Two Pianos
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Guastavino, Carlos
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Tres Romances Argentinos
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Kapustin, Nikolai
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Paraphrase on Dizzy Gillespie’s MANTECA for two pianos, op. 129
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Messiaen, Olivier
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Visions de l’Amen
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Piazzola, Astor
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Five Tangos
+
+                            <span class="work-details">
+                                <span>Fuga y misterio</span>
+                                <span>La muerte del ángel</span>
+                                <span>Milonga del ángel</span>
+                                <span>Soledad</span>
+                                <span>Michelangelo 70</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Smallman, Jeff
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Rhapsodie Espagnole
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Rachmaninoff, Sergei
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Suite No. 2, op. 17
+
+                            <span class="work-details">
+                                <span>IV. Tarantelle</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 LARGE ENSEMBLE
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Large Ensemble"
+            >
+
+                <h2 class="category-title">
+                    Large Ensemble
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Behzadi, Ashkan
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Carnivalesque
+
+                            <span class="work-details">
+                                <span>for flute, clarinet, percussions, piano, violin, viola, cello</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Champagne, Gabo
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Enne eau enne (2023)
+
+                            <span class="work-details">
+                                <span>for flute, clarinet, percussions, piano, violin, cello</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Chen, Carolyn
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Birria (2021)
+
+                            <span class="work-details">
+                                <span>for flute, clarinet, percussions, piano, violin, cello</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Doell, Jason
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Red Ensign (2015)
+
+                            <span class="work-details">
+                                <span>for flute, clarinet, percussions, piano, violin, cello</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Friedman, Nathan
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Barcarolle (2023)
+
+                            <span class="work-details">
+                                <span>for flute, clarinet, percussions, piano, violin, cello</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Hamilton, Andrew
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Frank O’Hara On The Phone Piece
+
+                            <span class="work-details">
+                                <span>for piccolo, ssax, asax, bass clarinet, trumpet, 2 horn, 2 trombone, tuba, perc, piano, electric guitar, bass guitar</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Resnik, Ethan
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            You might as well live
+
+                            <span class="work-details">
+                                <span>for soprano, flute, clarinet, violin, cello, piano, conductor</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 SMALL ENSEMBLE
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Small Ensemble"
+            >
+
+                <h2 class="category-title">
+                    Small Ensemble
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Beethoven, Ludwig van
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Piano Trio in C minor, op. 1 no. 3
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Bolcom, William
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Let Evening Come
+
+                            <span class="work-details">
+                                <span>for soprano, viola and piano</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Brahms, Johannes
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Clarinet Trio, op. 114
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Bruch, Max
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Eight Pieces, op. 83
+
+                            <span class="work-details">
+                                <span>for clarinet, viola and piano</span>
+                            </span>
+                        </li>
+
+                        <li class="work">
+                            Piano Quintet in G minor, Op. posts
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Cohen, Gerald
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sea of Reeds
+
+                            <span class="work-details">
+                                <span>for clarinet, viola, piano</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Foss, Lukas
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Thirteen Ways of Looking At A Black Bird
+
+                            <span class="work-details">
+                                <span>for voice, flute, percussion, piano</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Jacob, Gordon
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Trio for Clarinet, Viola, Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Knussen, Oliver
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Rosary Songs - Three poems by Georg Trakl
+
+                            <span class="work-details">
+                                <span>for Soprano, Clarinet, Viola, Piano</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Ko, Tonia
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Hum Phenomenon
+
+                            <span class="work-details">
+                                <span>for clarinet, violin, cello, piano</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        La, Alexander
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            As the Sky Breathes
+
+                            <span class="work-details">
+                                <span>for 2 pianos, marimba and vibraphone</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Lang, David
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            death speaks
+
+                            <span class="work-details">
+                                <span>for soprano, vln, egtr, pno - all amplified</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Larsen, Libby
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Black Birds, Red Hills
+
+                            <span class="work-details">
+                                <span>for clarinet, viola, piano</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Loeffler, Charles-Martin
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Deux Rapsodies pour Hautbois, Alto et Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Matthus, Siegfried
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Wasserspiele
+
+                            <span class="work-details">
+                                <span>for clarinet, viola, piano</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Mendelssohn, Felix Bartholdy
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Zwei Concertstücke
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Meyer, Jessica
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Seasons of Basho
+
+                            <span class="work-details">
+                                <span>for soprano, viola, piano</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Milhaud, Darius
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Suite for Violin, Clarinet and Piano, op. 157b
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Navok, Lior
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Mysterious Pond for Flute, Oboe, Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Noble, Jason
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Urban Nocturne no. 2 for Violin, Horn (Clarinet), Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Pidgorna, Anna
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Teach Your Daughters
+
+                            <span class="work-details">
+                                <span>for mezzo soprano, voice and prepared piano</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Poulenc, Francis
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Trio for Oboe, Bassoon, Piano, FP 43
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Raum, Elizabeth
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Renovated Rhymes
+
+                            <span class="work-details">
+                                <span>for soprano, viola, piano</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schnittke, Alfred
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Klavierquartett
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Shostakovich, Dmitri
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Piano Trio No. 1, op. 8
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Vivier, Claude
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Paramaribo
+
+                            <span class="work-details">
+                                <span>for flute, violin, cello, piano</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 VIOLIN AND PIANO
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Violin and Piano"
+            >
+
+                <h2 class="category-title">
+                    Violin and Piano
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Beach, Amy Marcy
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Romance, op. 23
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Beethoven, Ludwig van
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Violin Sonata in D major, op. 12
+                        </li>
+
+                        <li class="work">
+                            Violin Sonata in F major, op. 24 “Spring”
+                        </li>
+
+                        <li class="work">
+                            Romance in G, op. 40
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Brahms, Johannes
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Violin Sonata in A major, op. 100
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Moon, Dohi
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Chunhyang Ga for Violin and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Neuwirth, Olga
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Quasare/Pulsare for Violin and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schnittke, Alfred
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Violin Sonata no. 2, “Quasi Una Sonata”
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Takemitsu, Toru
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            From Far Beyond Chrysanthemums and November Fog
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Zivkovic, Djuro
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Metaphysical Poem (Sonata for Violin and Piano)
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 VIOLA AND PIANO
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Viola and Piano"
+            >
+
+                <h2 class="category-title">
+                    Viola and Piano
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Al-Zand, Karim
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Hollows and Dell
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Bartok, Bela
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Viola Concerto, Sz. 120, BB 128
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Bax, Arnold
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Legend for Viola and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Boulanger, Nadia
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Trois Pièces pour Alto et Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Bowen, York
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Viola Sonata in C minor, op. 18
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Brahms, Johannes
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Clarinet Sonata (or Viola) in F minor no. 1, op. 120
+                        </li>
+
+                        <li class="work">
+                            Clarinet Sonata (or Viola) in E-flat major no. 2, op. 120
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Bruch, Max
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Romanza, op. 85
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Ellin, Benjamin
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Siksika for Viola and Chamber Ensemble
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Hindemith, Paul
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonata for Viola and Piano in F, op. 11 no. 4
+                        </li>
+
+                        <li class="work">
+                            Viola Concerto “Der Schwanendreher”
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Shostakovich, Dmitri
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Viola Sonata, op. 147
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Walton, William
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Concerto for Viola and Orchestra
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 CELLO AND PIANO
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Cello and Piano"
+            >
+
+                <h2 class="category-title">
+                    Cello and Piano
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Brahms, Johannes
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Cello Sonata in E minor, op. 38
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Elgar, Edward
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Cello Concerto in E minor, op. 85
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Faure, Gabriel
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Élégi, op. 24e for Cello and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Lalo, Édouard
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Cello Concerto in D minor
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 DOUBLE BASS AND PIANO
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Double Bass and Piano"
+            >
+
+                <h2 class="category-title">
+                    Double Bass and Piano
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Bottesini, Giovanni
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Concerto in B minor for Double Bass
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Hopkins, Kelsea
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Poem for Double Bass and Piano (2024)
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Lauber, Ann
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            3 Intermezzos for Double Bass and Piano (1987)
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Mišek, Adolf
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonata in E minor, Op. 6 for Double Bass and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 FLUTE AND PIANO
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Flute and Piano"
+            >
+
+                <h2 class="category-title">
+                    Flute and Piano
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Burton, Eldin
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonatina for Flute and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Dutilleux, Henri
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonatina for Flute and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Franck, Cesar
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonata in A major for Violin (Flute) and Piano, FWV 8
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Glick, Srul Irving
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonata for Flute and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Karg-Elert, Sigfrid
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sinfonische Kanzone for Flute and Piano, Op. 114
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Poulenc, Francis
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Flute Sonata, FP 164
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Reinecke, Carl
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Ballade
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schubert, Franz
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Variations on “Trockne Blumen” in E minor op. post. 160 D 802
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schulhoff, Erwin
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonata for Flute and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Widor, Charles-Marie
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Suite, op. 34 for Flute and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 CLARINET / BASS CLARINET AND PIANO
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Clarinet/Bass Clarinet and Piano"
+            >
+
+                <h2 class="category-title">
+                    Clarinet / Bass Clarinet and Piano
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Bernstein, Leonard
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonata for Clarinet in B-flat and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Bunch, Kenji
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Cookbook for Clarinet and Piano
+                        </li>
+
+                        <li class="work">
+                            Industrial Strength for Bass Clarinet and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Brossé, Dirk
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Elegy for Bass Clarinet and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Debussy, Claude
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Première Rhapsodie for Clarinet and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Edwards, Ross
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            The Tower of Remoteness for clarinet and piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Harberg, Amanda
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonata for Clarinet and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Hindemith, Paul
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonata for Clarinet and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Horovitz, Joseph
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonatina for Clarinet and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Lutoslawski, Witold
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Dance Preludes for Clarinet
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Poulenc, Francis
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Clarinet Sonata, FP 184
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Saint-Saens, Camille
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Clarinet Sonata, op. 167
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schoeck, Othmar
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonata for Bass Clarinet and Piano op. 41
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schumann, Robert
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Phantasiestücke, op. 73 for Clarinet and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Stanford, Charles Villiers
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Three Intermezzi, op. 13 for Clarinet and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Tozzola, Sebastian
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Paisaje Folklórico No. 2 for Bass Clarinet and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Widor, Charles-Marie
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Introduction and Rondo, op. 72 for Clarinet and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 SAXOPHONE AND PIANO
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Saxophone and Piano"
+            >
+
+                <h2 class="category-title">
+                    Saxophone and Piano
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Caplet, André
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Légende for Saxophone and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Glazunov, Alexander
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Saxophone Concerto in E-flat major, op. 109
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Maurice, Paul
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Tableaux de Provence for Saxophone and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Montbrun, Raymond Gallois
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Six Pièces Musicales d’Etude for Alto Saxophone and Piano
+
+                            <span class="work-details">
+                                <span>I. Ballade (La Souplesse)</span>
+                                <span>III. Ronde (Le Staccato)</span>
+                                <span>IV. Lied (La Sonorité)</span>
+                                <span>VI. Finale (La Vélocité)</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Planel, Robert
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Prelude et Saltarelle
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schulhoff, Erwin
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Hot-Sonate
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Tomasi, Henri
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Ballade
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Tôn-Thât Tiết
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Romance for Saxophone and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Watson, Jenni
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Arabesque (On a theme by Debussy) for Saxophone and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 BRASS AND PIANO
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Brass and Piano"
+            >
+
+                <h2 class="category-title">
+                    Brass and Piano
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Ewazen, Eric
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Visions of Light, Concerto no. 2 for Trombone
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Kennan, Kent
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonata for Trumpet and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Meij, Johan de
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            UFO Concerto for Euphonium
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Neuling, Hermann
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Bagatelle for Horn and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Peaselee, Richard
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Nightsongs for Flugerhorn/Trumpet and Piano
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 PERCUSSION AND PIANO
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Percussion and Piano"
+            >
+
+                <h2 class="category-title">
+                    Percussion and Piano
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Mayuzumi, Toshiro
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Concertino for Xylophone
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Sejourne, Emmanuel
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Concerto for Marimba and Strings
+                        </li>
+
+                        <li class="work">
+                            Concerto for Vibraphone and Strings
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 VOICE AND PIANO
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Voice and Piano"
+            >
+
+                <h2 class="category-title">
+                    Voice and Piano
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Argento, Dominick
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Miss Havisham’s Wedding Night
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Berg, Alban
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sieben Frühe Lieder
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Bolcom, William
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Cabaret Songs
+
+                            <span class="work-details">
+                                <span>Song of Black Max (As told by the Kooning boys)</span>
+                                <span>Amor</span>
+                                <span>Surprise!</span>
+                                <span>I saw Eternity, from <i>I Will Breathe a Mountain</i></span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Boulanger, Lili
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Reflets
+                        </li>
+
+                        <li class="work">
+                            From <i>Clairières dans le ciel</i>:
+
+                            <span class="work-details">
+                                <span>Elle était descendue au bas de la prairie</span>
+                                <span>Vous m’avez regardé avec toute votre âme</span>
+                                <span>Les Lilas qui avaient fleuri</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Boulanger, Nadia
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            J’ai Frappé…
+                        </li>
+
+                        <li class="work">
+                            Was will die einsame Thräne, from <i>Larme Solitaire</i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Brahms, Johannes
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            An eine Äolsharfe, from <i>Five Poems op. 19</i>
+                        </li>
+
+                        <li class="work">
+                            Der Gang zum Liebchen, from <i>Seven Songs op. 48</i>
+                        </li>
+
+                        <li class="work">
+                            Die Mainacht, from <i>Four Songs op. 43</i>
+                        </li>
+
+                        <li class="work">
+                            From <i>Fünf Lieder op. 105</i>
+
+                            <span class="work-details">
+                                <span>Wie Melodien zieht es mir</span>
+                                <span>Immer leiser wird mein Schlummer</span>
+                            </span>
+                        </li>
+
+                        <li class="work">
+                            Wir wandelten, from <i>Four Songs op. 96</i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Chaminade, Cecile
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Berceuse
+                        </li>
+
+                        <li class="work">
+                            La Lune Paresseuse
+                        </li>
+
+                        <li class="work">
+                            Villanelle
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Chausson, Ernest
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Cantique a l’épouse, from <i>Two Melodies op. 36</i>
+                        </li>
+
+                        <li class="work">
+                            From <i>Sept Mélodies, op. 2</i>
+
+                            <span class="work-details">
+                                <span>Le Charme</span>
+                                <span>Les Papillons</span>
+                                <span>Sérénade italienne</span>
+                                <span>Hébé</span>
+                                <span>Le Colibri</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Chen Yi
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Meditation
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Clarke, Rebecca
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            The Seal Man
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Copland, Aaron
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Twelve Poems of Emily Dickson
+
+                            <span class="work-details">
+                                <span>1. Nature, the gentlest mother</span>
+                                <span>IV. The world feels dusty</span>
+                                <span>XI. Going to Heaven!</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Debussy, Claude
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Trois Chansons de Bilitis
+                        </li>
+
+                        <li class="work">
+                            Ariettes Oublièes
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Duparc, Henri
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Chanson Triste
+                        </li>
+
+                        <li class="work">
+                            L’invitation au voyage
+                        </li>
+
+                        <li class="work">
+                            Serenade Florentine
+                        </li>
+
+                        <li class="work">
+                            Soupir
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Fauré, Gabriel
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Chanson du pêcheur, from <i>2 Songs, op. 4</i>
+                        </li>
+
+                        <li class="work">
+                            La Chanson d’Eve, op. 95
+
+                            <span class="work-details">
+                                <span>I. Paradis</span>
+                                <span>III. Roses ardentes</span>
+                                <span>IV. Comme Dieu rayonne</span>
+                                <span>VIII. Dans un parfum de roses blanches</span>
+                                <span>IX. Crépuscule</span>
+                                <span>X. O mort, poussière d’étoiles</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Fung, Vivian
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Pot Roast a la RBG
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Glinka, Mikhail
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Doubt
+                        </li>
+
+                        <li class="work">
+                            My blood is boiling with desire
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Lachenmann, Helmut
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Got Lost
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Laitman, Lori
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Four Dickinson Songs
+                        </li>
+
+                        <li class="work">
+                            Days and Nights
+                        </li>
+
+                        <li class="work">
+                            The Perfected Life
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Larsen, Libby
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Love After 1950
+                        </li>
+
+                        <li class="work">
+                            The Apple’s Song
+                        </li>
+
+                        <li class="work">
+                            Songs from Letters
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Liszt, Franz
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Die Lorelei
+                        </li>
+
+                        <li class="work">
+                            Johanna von Arc vor dem Scheiterhaifen
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Livingston, Cecilia
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Parting
+                        </li>
+
+                        <li class="work">
+                            Penelope
+                        </li>
+
+                        <li class="work">
+                            Kalypso
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Mahler, Alma
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            From <i>Fünf Lieder</i>
+
+                            <span class="work-details">
+                                <span>Die Stille Stadt</span>
+                                <span>Laue Sommernacht</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Mendelssohn, Fanny
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            From <i>6 Lieder op. 1</i>
+
+                            <span class="work-details">
+                                <span>Schwanenlied</span>
+                                <span>Wanderlied</span>
+                                <span>Warum sind denn die Rosen so Blass?</span>
+                                <span>Mayenlied</span>
+                            </span>
+                        </li>
+
+                        <li class="work">
+                            Frühling, from <i>6 Lieder op. 7</i>
+                        </li>
+
+                        <li class="work">
+                            Vorwurf, from <i>5 Lieder op. 10</i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Mozart, Wolfgang Amadeus
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Als Luise die Briefe ihres ungetreuen Liebhabers verbrannte, K. 520
+                        </li>
+
+                        <li class="work">
+                            Abendempfindnug, K. 523
+                        </li>
+
+                        <li class="work">
+                            Ach, ich fühl’s, from <i>Die Zauberflote</i>
+                        </li>
+
+                        <li class="work">
+                            Vedrai carino, from <i>Don Giovanni</i>
+                        </li>
+
+                        <li class="work">
+                            From <i>Le Nozze di Figaro</i>
+
+                            <span class="work-details">
+                                <span>L’ho perduta</span>
+                                <span>Non so più cosa son</span>
+                                <span>Porgi amor</span>
+                                <span>Un moto di gioia</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Nourbakhsh, Niloufar
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            “Serenade, Thistle” Selected Poems by Pablo Neruda
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Pearce, Monica
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Aunt Helen
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Poulenc, Francis
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            La dame d’Andrée, from <i>Fiançailles pour rire FP 101</i>
+                        </li>
+
+                        <li class="work">
+                            Montparnasse, from <i>Deux Poemes de Guillaume Apollinaire</i>
+                        </li>
+
+                        <li class="work">
+                            Air grave, from <i>Airs chantés, FP 46</i>
+                        </li>
+
+                        <li class="work">
+                            Le Bestiare
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Price, Florence
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Hold Fast to Dreams
+                        </li>
+
+                        <li class="work">
+                            Spring
+                        </li>
+
+                        <li class="work">
+                            The Sum
+                        </li>
+
+                        <li class="work">
+                            What’s the Use?
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Rachmaninov, Sergei
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Не пой, красавица (Ne poy, krasavitsa)
+
+                            <span class="work-details">
+                                <span>Do not sing, my beauty, from <i>6 Romances op. 4</i></span>
+                            </span>
+                        </li>
+
+                        <li class="work">
+                            From <i>6 Romances op. 8</i>
+
+                            <span class="work-details">
+                                <span>Молитва (Molitva) — A Prayer</span>
+                                <span>Сон (Son) — The Dream</span>
+                            </span>
+                        </li>
+
+                        <li class="work">
+                            From <i>12 Romances op. 21</i>
+
+                            <span class="work-details">
+                                <span>Сирень (Siren’) — Lilacs</span>
+                                <span>Отрывок из А. Мюссе (Otryvok iz A. Myusse) — Fragment from Musset</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Ravel, Maurice
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            From <i>Don Quichotte à Dulcinée</i>
+
+                            <span class="work-details">
+                                <span>Chanson Romanesque</span>
+                                <span>Chanson épique</span>
+                            </span>
+                        </li>
+
+                        <li class="work">
+                            Cinq Mélodies Populaire Grecques
+                        </li>
+
+                        <li class="work">
+                            Le Paon, from <i>Histoire naturelle</i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Ryan, Jeffrey
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Los Alamos, from <i>First There Was Light</i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Saariaho, Kaija
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Quatre Instants
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Satie, Erik
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            La statue de bronze, from <i>Trois Mélodies</i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schafer, R. Murray
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Kinderlieder
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schoenberg, Arnold
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            From <i>Brett-Lieder</i>
+
+                            <span class="work-details">
+                                <span>Galathea</span>
+                                <span>Gigerlette</span>
+                                <span>Mahnung</span>
+                                <span>Jedem das Seine</span>
+                                <span>Arie aus dem Spiegel von Arkadien</span>
+                            </span>
+                        </li>
+
+                        <li class="work">
+                            Unterm Schutz von dichten Blättergründen, from <i>Das Buch der hängenden Gärten, op. 15</i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schubert, Franz
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            An den Mond
+                        </li>
+
+                        <li class="work">
+                            Bei dir allein!
+                        </li>
+
+                        <li class="work">
+                            Die Männer sind merchant
+                        </li>
+
+                        <li class="work">
+                            Die Unterscheidung
+                        </li>
+
+                        <li class="work">
+                            Gretchen am Spinnrade
+                        </li>
+
+                        <li class="work">
+                            Seligkeit
+                        </li>
+
+                        <li class="work">
+                            Wohin?, from <i>Die schöne Müllerin</i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schumann, Clara
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Drei Lieder op. 12
+
+                            <span class="work-details">
+                                <span>Liebst du um Schönheit</span>
+                                <span>Warum willst du andere fragen</span>
+                            </span>
+                        </li>
+
+                        <li class="work">
+                            From <i>6 Lieder op. 13</i>
+
+                            <span class="work-details">
+                                <span>Ich stand in dunklen Träumen</span>
+                                <span>Die Stille Lotosblume</span>
+                            </span>
+                        </li>
+
+                        <li class="work">
+                            Was weinst du, Blümlein, from <i>6 Lieder op. 23</i>
+                        </li>
+
+                        <li class="work">
+                            Am Strande
+                        </li>
+
+                        <li class="work">
+                            Lorelei
+                        </li>
+
+                        <li class="work">
+                            Mein Stern
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schumann, Robert
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Die Kartenlegerin, from <i>3 Gesänge op. 31</i>
+                        </li>
+
+                        <li class="work">
+                            Mit Myrten und Rosen, from <i>Liederkreis op. 24</i>
+                        </li>
+
+                        <li class="work">
+                            From <i>Liederkreis op. 39</i>
+
+                            <span class="work-details">
+                                <span>In der Fremde</span>
+                                <span>Die Stille</span>
+                                <span>Schöne Fremde</span>
+                                <span>In der Fremde</span>
+                            </span>
+                        </li>
+
+                        <li class="work">
+                            Liebeslied, from <i>Lieder und Gësange op. 51</i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Schwantner, Joseph
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Black Anemones
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Sokolovic, Ana
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Tanzer Lieder
+
+                            <span class="work-details">
+                                <span>I. Sur une étoile</span>
+                                <span>IV. Wishing Well</span>
+                                <span>V. Last Song</span>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Spavelko, Lauren
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Baby Book
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Strauss, Richard
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            8 Gedichte aus ‘Letzte Blätter’, op. 10
+
+                            <span class="work-details">
+                                <span>3. Die Nacht</span>
+                                <span>4. Die Georgine</span>
+                                <span>8. Allerseelen</span>
+                            </span>
+                        </li>
+
+                        <li class="work">
+                            Ständchen, from <i>6 Lieder op. 16</i>
+                        </li>
+
+                        <li class="work">
+                            From <i>Schlichte Weisen op. 21</i>
+
+                            <span class="work-details">
+                                <span>All mein’ Gedanken</span>
+                                <span>Ach Lieb, ich muß nun Seheiden</span>
+                            </span>
+                        </li>
+
+                        <li class="work">
+                            Kornblumen, from <i>Mädchenblumen op. 22</i>
+                        </li>
+
+                        <li class="work">
+                            Traum durch die Dämmerung, from <i>3 Lieder op. 29</i>
+                        </li>
+
+                        <li class="work">
+                            Ich trage meine Minne, from <i>5 Lieder op. 32</i>
+                        </li>
+
+                        <li class="work">
+                            Für fünfzehn Pfennige, from <i>4 Lieder op. 36</i>
+                        </li>
+
+                        <li class="work">
+                            Befreit, from <i>5 Lieder op. 39</i>
+                        </li>
+
+                        <li class="work">
+                            Ich Schwebe, from <i>5 Lieder op. 48</i>
+                        </li>
+
+                        <li class="work">
+                            Wie erkenn ich mein Treulieb vor andern nun, from <i>Drei Lieder der Ophelia</i>
+                        </li>
+
+                        <li class="work">
+                            Rote Rosen
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Strohl, Rita
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Sonnet
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Tann, Hillary
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Between Sunsets
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Tchaikovsky, Pyotr Ilyich
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Tell me, in the shadow of the branches from <i>6 Romances op. 57</i>
+                        </li>
+
+                        <li class="work">
+                            None but the lonely heart from <i>6 Romances op. 6</i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Viardot, Pauline
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Berceuse Cosaque
+                        </li>
+
+                        <li class="work">
+                            Chanson de la Pluie
+                        </li>
+
+                        <li class="work">
+                            Chanson de mer
+                        </li>
+
+                        <li class="work">
+                            Les Filles de Cadix
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Webern, Anton
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Drei Lieder, op. 25
+                        </li>
+
+                        <li class="work">
+                            8 Early Songs
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Weinzweig, John
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            I Heard
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Wolf, Hugo
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Mörike Lieder
+
+                            <span class="work-details">
+                                <span>An die Geliebte</span>
+                                <span>Nimmersatte Liebe</span>
+                                <span>Verborgenheit</span>
+                            </span>
+                        </li>
+
+                        <li class="work">
+                            Verschwiegene Liebe, from <i>Eichendorff Lieder</i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 ERHU AND PIANO
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Erhu and Piano"
+            >
+
+                <h2 class="category-title">
+                    Erhu and Piano
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        刘文金 Liu Wen Jin
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            三门峡畅想曲 The Sanmen Gorge Capriccio
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        王建民 Wang Jian-min
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            第一二胡狂想曲 Erhu Rhapsody no. 1
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        陈钢 Chen Gang
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            阳光照耀在塔什库尔干 Sunshine over Tashkurgan
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        张晓峰、朱晓谷
+                    </h3>
+
+                    <div class="composer-note">
+                        Zhang Xiao-feng, Zhu Xiao-gu
+                    </div>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            新婚别 Erhu Concerto “Parting of the Newly-weds”
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 MUSICALS
+                 ================================================== -->
+
+            <section
+                class="repertoire-category"
+                data-category="Musicals"
+            >
+
+                <h2 class="category-title">
+                    Musicals
+                </h2>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Avenue Q
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            There’s A Fine, Fine Line
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Catch Me If You Can
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Goodbye
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Hairspray
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            I Can Hear The Bells
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Island Song
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            TMI
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Jasper in Deadland
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Stroke By Stroke
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Once
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Falling Slowly
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Ragtime
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Back To Before
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Rent
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Another Day
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Sunday in the Park with George
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            The Day Off
+                        </li>
+
+                        <li class="work">
+                            We Do Not Belong Together
+                        </li>
+
+                        <li class="work">
+                            It’s Hot Up Here
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Tales From The Bad Years
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Avalanche
+                        </li>
+
+                        <li class="work">
+                            Someone Else’s Life
+                        </li>
+
+                        <li class="work">
+                            Twenty-Something
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Tick, Tick…Boom!
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Louder Than Words
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Title Of Show
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Secondary Characters
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        The Drowsy Chaperone
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            As We Stumble Along
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Oliver, Ryan Scott
+                    </h3>
+
+                    <ul class="work-list">
+
+                        <li class="work">
+                            Debbies’ Advice (No One’s Gonna Love You, B*tch)
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        The Last Five Years
+                    </h3>
+
+                    <div class="composer-note">
+                        the musical by Jason Robert Brown
+                    </div>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Damn Yankees
+                    </h3>
+
+                    <div class="composer-note">
+                        the musical, music and lyrics by Richard Adler and Jerry Ross
+                    </div>
+
+                </div>
+
+
+                <div class="composer-block">
+
+                    <h3 class="composer-name">
+                        Blood Brothers
+                    </h3>
+
+                    <div class="composer-note">
+                        the musical by Willy Russell
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+        <div
+            class="no-results"
+            id="no-results"
+        >
+            No repertoire found matching your search.
+        </div>
+
+
+    </article>
+
+</main>
+
+
+<script>
+
+    const searchInput =
+        document.getElementById("repertoire-search");
+
+    const clearButton =
+        document.getElementById("clear-search");
+
+    const searchCount =
+        document.getElementById("search-count");
+
+    const categories =
+        document.querySelectorAll(".repertoire-category");
+
+    const noResults =
+        document.getElementById("no-results");
+
+
+    function searchRepertoire() {
+
+        const query =
+            searchInput.value
+                .trim()
+                .toLowerCase();
+
+
+        let visibleWorks = 0;
+
+
+        categories.forEach(category => {
+
+            let categoryHasResults = false;
+
+
+            const composerBlocks =
+                category.querySelectorAll(".composer-block");
+
+
+            composerBlocks.forEach(block => {
+
+                const composer =
+                    block.querySelector(".composer-name");
+
+                const works =
+                    block.querySelectorAll(".work");
+
+
+                const composerText =
+                    composer
+                        ? composer.textContent.toLowerCase()
+                        : "";
+
+
+                let blockHasResults = false;
+
+
+                works.forEach(work => {
+
+                    const workText =
+                        work.textContent.toLowerCase();
+
+
+                    /*
+                     * Search both composer name
+                     * and work title/details.
+                     */
+
+                    const matches =
+                        query === "" ||
+                        composerText.includes(query) ||
+                        workText.includes(query);
+
+
+                    if (matches) {
+
+                        work.style.display = "";
+
+                        blockHasResults = true;
+
+                        visibleWorks++;
+
+                    } else {
+
+                        work.style.display = "none";
+
+                    }
+
+                });
+
+
+                /*
+                 * If the composer name matches,
+                 * show all of that composer's works.
+                 */
+
+                if (
+                    query !== "" &&
+                    composerText.includes(query)
+                ) {
+
+                    works.forEach(work => {
+
+                        work.style.display = "";
+
+                    });
+
+
+                    visibleWorks +=
+                        works.length -
+                        Array.from(works).filter(
+                            work =>
+                                work.style.display === "none"
+                        ).length;
+
+                    blockHasResults = true;
+
+                }
+
+
+                block.style.display =
+                    blockHasResults ? "" : "none";
+
+
+                if (blockHasResults) {
+
+                    categoryHasResults = true;
+
+                }
+
+            });
+
+
+            category.style.display =
+                categoryHasResults ? "" : "none";
+
+        });
+
+
+        if (query === "") {
+
+            searchCount.textContent =
+                "Showing all repertoire";
+
+            clearButton.style.display =
+                "none";
+
+            noResults.style.display =
+                "none";
+
+        } else {
+
+            clearButton.style.display =
+                "block";
+
+
+            searchCount.textContent =
+                visibleWorks +
+                (visibleWorks === 1
+                    ? " work"
+                    : " works") +
+                " found";
+
+
+            noResults.style.display =
+                visibleWorks === 0
+                    ? "block"
+                    : "none";
+
+        }
+
+    }
+
+
+    searchInput.addEventListener(
+        "input",
+        searchRepertoire
+    );
+
+
+    clearButton.addEventListener(
+        "click",
+        function () {
+
+            searchInput.value = "";
+
+            searchRepertoire();
+
+            searchInput.focus();
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

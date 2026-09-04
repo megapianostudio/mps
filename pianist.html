@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mega Piano Studio — Biography</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&family=Niconne&display=swap" rel="stylesheet">
+
+
+<style>
+
+    :root {
+        --brand-yellow: #ffd145;
+        --brand-gold: #c99b1d;
+        --warm-cream: #faf8f2;
+        --soft-cream: #f2eee5;
+        --charcoal: #201f1c;
+        --soft-charcoal: #4f4b44;
+        --white: #ffffff;
+    }
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+        background-color: var(--warm-cream);
+        color: var(--charcoal);
+        font-family: "Montserrat", sans-serif;
+    }
+
+
+    /* =========================
+       MENU
+       ========================= */
+
+    .menu {
+        position: fixed;
+        top: 25px;
+        left: 25px;
+        z-index: 1000;
+    }
+
+
+    .menu-button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 14px 18px;
+
+        background: var(--charcoal);
+        color: var(--warm-cream);
+
+        font-size: 0.75rem;
+        font-weight: 600;
+
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.15);
+    }
+
+
+    .menu-icon {
+        font-size: 1.2rem;
+        line-height: 1;
+    }
+
+
+    .menu-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        width: 220px;
+        margin-top: 8px;
+
+        background: var(--white);
+
+        border-radius: 4px;
+
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.15);
+
+        overflow: hidden;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translateY(-8px);
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+    }
+
+
+    .menu:hover .menu-links {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+
+    .menu-links a {
+        display: block;
+
+        padding: 15px 20px;
+
+        color: var(--charcoal);
+
+        text-decoration: none;
+
+        font-size: 0.75rem;
+        font-weight: 600;
+
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        border-bottom: 1px solid var(--soft-cream);
+
+        transition:
+            background 0.2s ease,
+            padding-left 0.2s ease;
+    }
+
+
+    .menu-links a:last-child {
+        border-bottom: none;
+    }
+
+
+    .menu-links a:hover {
+        background: var(--soft-cream);
+        padding-left: 26px;
+    }
+
+
+    .submenu {
+        background: #f7f4ec;
+    }
+
+
+    .submenu a {
+        padding-left: 35px;
+
+        font-size: 0.68rem;
+        font-weight: 500;
+
+        letter-spacing: 0.06em;
+    }
+
+
+    .submenu a:hover {
+        padding-left: 41px;
+    }
+
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+        min-height: 28vh;
+
+        padding: 35px 30px 25px;
+
+        background: linear-gradient(
+            135deg,
+            rgba(255, 209, 69, 0.97),
+            rgba(255, 225, 135, 0.92)
+        );
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+    }
+
+
+    .hero h1 {
+        font-family: "Niconne", cursive;
+
+        font-size: clamp(4.5rem, 8vw, 7rem);
+
+        font-weight: normal;
+        line-height: 1;
+
+        color: var(--charcoal);
+
+        margin-bottom: 18px;
+    }
+
+
+    .hero h4 {
+        font-size: 0.95rem;
+
+        font-weight: 500;
+
+        letter-spacing: 0.2em;
+
+        text-transform: uppercase;
+
+        color: #5a5138;
+
+        margin-bottom: 25px;
+    }
+
+
+    .hero-rule {
+        width: 70px;
+        height: 2px;
+
+        background: var(--charcoal);
+    }
+
+
+    /* =========================
+       BIOGRAPHY
+       ========================= */
+
+    .biography-section {
+        max-width: 1200px;
+
+        margin: 65px auto 100px;
+
+        padding: 0 30px;
+
+        display: grid;
+
+        grid-template-columns: 430px 1fr;
+
+        gap: 65px;
+
+        align-items: start;
+    }
+
+
+    .biography-image {
+        position: sticky;
+
+        top: 40px;
+    }
+
+
+    .biography-image img {
+        display: block;
+
+        width: 100%;
+        height: auto;
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 12px 35px rgba(0, 0, 0, 0.15);
+    }
+
+
+    .photo-credit {
+        margin-top: 8px;
+
+        font-family: "Montserrat", sans-serif;
+
+        font-size: 0.8rem;
+
+        font-weight: 400;
+
+        letter-spacing: 0.05em;
+
+        color: var(--soft-charcoal);
+
+        text-align: left;
+    }
+
+
+    .biography-content {
+        background: rgba(255, 255, 255, 0.78);
+
+        padding: 50px 55px;
+
+        border-radius: 8px;
+
+        box-shadow:
+            0 10px 35px rgba(0, 0, 0, 0.06);
+    }
+
+
+    .biography-content p {
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 1.4rem;
+
+        line-height: 1.7;
+
+        color: var(--soft-charcoal);
+
+        margin-bottom: 28px;
+    }
+
+
+    .biography-content p:last-child {
+        margin-bottom: 0;
+    }
+
+
+    /* =========================
+       TABLET
+       ========================= */
+
+    @media (max-width: 800px) {
+
+        .biography-section {
+            grid-template-columns: 1fr;
+
+            gap: 40px;
+
+            margin-top: 40px;
+        }
+
+
+        .biography-image {
+            position: relative;
+
+            top: auto;
+
+            max-width: 500px;
+
+            margin: 0 auto;
+        }
+
+
+        .biography-content {
+            padding: 40px 30px;
+        }
+
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 600px) {
+
+        .menu {
+            top: 15px;
+            left: 15px;
+        }
+
+
+        .hero {
+            min-height: 45vh;
+
+            padding: 90px 25px 60px;
+        }
+
+
+        .hero h1 {
+            font-size: 4.5rem;
+        }
+
+
+        .hero h4 {
+            font-size: 0.8rem;
+
+            letter-spacing: 0.14em;
+        }
+
+
+        .biography-section {
+            margin: 40px 20px 75px;
+
+            padding: 0;
+
+            gap: 30px;
+        }
+
+
+        .biography-content {
+            padding: 35px 25px;
+        }
+
+
+        .biography-content p {
+            font-size: 1.2rem;
+        }
+
+
+        .photo-credit {
+            font-size: 0.6rem;
+        }
+
+    }
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- MENU -->
+
+<nav class="menu">
+
+    <div class="menu-button">
+
+        <span class="menu-icon">☰</span>
+
+        Menu
+
+    </div>
+
+
+    <div class="menu-links">
+
+        <a href="https://megapianostudio.github.io/mps/">
+            Studio
+        </a>
+
+
+        <div class="submenu">
+
+            <a href="https://megapianostudio.github.io/mps/studio/courses">
+                Courses
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/calendar">
+                Calendar
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/teachers">
+                Teachers
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/musicplayspace">
+                Music Play Space
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/musictalk">
+                Music Talk
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/testimonials">
+                Testimonials
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/contact">
+                Contact
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/studio/recruit">
+                Recruit
+            </a>
+
+        </div>
+
+
+        <a href="https://megapianostudio.github.io/mps/pianist">
+            Pianist
+        </a>
+
+
+        <div class="submenu">
+
+            <a href="https://megapianostudio.github.io/mps/pianist/repertoire">
+                Repertoire
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/pianist/video">
+                Video
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/pianist/newsounds">
+                New Sounds
+            </a>
+
+            <a href="https://megapianostudio.github.io/mps/pianist/perform">
+                Perform
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <h1>
+        Mega Piano Studio
+    </h1>
+
+    <h4>
+        Biography
+    </h4>
+
+    <div class="hero-rule"></div>
+
+</header>
+
+
+<!-- BIOGRAPHY -->
+
+<main class="biography-section">
+
+
+    <div class="biography-image">
+
+        <img
+            src="image/11.jpeg"
+            alt="Megaria Halim"
+        >
+
+        <div class="photo-credit">
+            Picture: twocentsmusic
+        </div>
+
+    </div>
+
+
+    <article class="biography-content">
+
+        <h2>
+            Megaria Halim, D.M.A., M.Mus., B.A. (Hons.)
+        </h2>
+        <br>
+
+        <p>
+            Megaria is a highly sought-after pianist with international performance experience.
+            She has staged well-received performances at the Singapore Airlines theatre at
+            Lasalle College of the Arts, and at Uniplaza Building in Medan, Indonesia. In 2023,
+            Megaria was featured in the Young Artist Overture organized by New Music Concert
+            (Toronto, Canada). She also performed with HATCH at Toronto Summer Music Festival,
+            BIGLAKE Festival in Prince Edward County, and Chamberfest in Ottawa, In Winter 2024,
+            Megaria was a Banff musician in residence. Being a champion for women and other
+            historically underrepresented artists, Megaria has curated and performed in several
+            recitals featuring women composers, with women performers, on themes surrounding
+            womanhood. In 2025, Megaria participated in soundSCAPE in Switzerland, premiering
+            works by young composers. Megaria also performed in several recitals on Prince
+            Edward Island in Canada, including a concert for two pianos with UPEI piano
+            professor, Magdalena von Eccher, and “Archipelagic Voices: Contemporary Music by
+            Southeast Asian Composers” as part of the Contemporary Music Festival at UPEI in
+            2026. Being very interested in how the human mind works as one performs and listens
+            to music, Megaria also collaborates closely with a music psychologist in
+            research-creation. Together, they have presented several lecture recitals, bringing
+            the world of classical music performance closer to the audience.
+        </p>
+
+
+        <p>
+            Megaria is also an accomplished collaborative pianist who brings artistry, musical
+            sensitivity, and creativity to every collaborative music-making experience. She
+            performs with and coaches a wide range of instrumentalists and vocalists, supporting
+            musicians of every stage. From students preparing for examinations and jury
+            performances, to professional artists performing in concerts, musicians who have
+            worked with Megaria value her exceptional skill, artistry, and collaborative approach,
+            which help bring out the best in each performance.
+        </p>
+
+
+        <p>
+            To Megaria, sharing music is one of the biggest things she is passionate about.
+            Both teaching and performance offer her a unique and precious way of sharing music
+            with others. As a performer, she is given this privilege to serve as a bridge
+            between the composer and the audience. At the same time, through the re-creation and
+            re-interpretation of the works, she is able to communicate certain intents and ideas
+            to others. Having opportunities to explore different types of music ranging from
+            the classical repertoire to contemporary compositions, she realized that the various
+            ways through which composers and performers convey their artistic intent is not
+            limited to just the melodies, harmonies, or other conventional musical structures.
+            In fact, ways of communicating musical intent could exist even in aspects not
+            restricted to sounds. Therefore, she is very excited about exploring and experimenting
+            with the different ways in which various sounds, timbre and gestures are being used
+            in the compositional and performance processes. Having an interest in both traditional
+            and contemporary, solo, and chamber repertoires, she has been exploring various
+            repertoires from across different periods and styles. She is especially keen on works
+            by contemporary composers and has regularly collaborated with and performed works by
+            living composers. Megaria hopes to continue working with more living composers in
+            understanding their artistic intent and to collaborate with different artists in the
+            process of bringing a new musical work to life.
+        </p>
+
+
+        <p>
+            Megaria also has a strong interest in musical theatre and has been involved in a
+            number of theatrical productions worldwide. Working in musical theatre offers a
+            distinctly different and exciting collaborative experience, combining music with
+            storytelling, drama, movement, and performance. Each production brings together
+            artists from a variety of disciplines, creating a dynamic and highly collaborative
+            environment. Megaria particularly enjoys the energy and sense of community that
+            musical theatre fosters. Whether working with singers, actors, directors, or other
+            musicians, Megaria values the opportunity to contribute to a shared artistic vision
+            and to help bring a production to life. Her experience in musical theatre has further
+            enriched her approach as a musician and collaborator, reinforcing the importance of
+            listening, flexibility, communication, and responsiveness in every performance.
+        </p>
+
+
+        <p>
+            Megaria graduated with a Doctorate of Musical Arts (DMA) and Masters of Music (MMus)
+            from University of Western Ontario, Canada. Before moving to Canada for her graduate
+            studies, she attended Lasalle College of the Arts and graduated with First Class
+            Honours.
+        </p>
+
+
+    </article>
+
+</main>
+
+
+</body>
+</html>
